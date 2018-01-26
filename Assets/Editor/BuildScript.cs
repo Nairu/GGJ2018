@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using System.Linq;
 
 public class BuildScript {
     static string[] SCENES = FindEnabledEditorScenes();
 
     static string APP_NAME = "GGJ2018";
-    static string TARGET_DIR = "C:/Users/Jenkins/Documents/Builds";
+    static string TARGET_DIR = "C:/Builds";
 
     [MenuItem("Custom/CI/Build Windows")]
     static void PerformWindowsBuild()
     {
-        string target_dir = APP_NAME + "/windows";
-        GenericBuild(SCENES, TARGET_DIR + "/" + target_dir, BuildTarget.StandaloneWindows64, BuildOptions.None);
+        GenericBuild(SCENES, TARGET_DIR + "/windows/" + APP_NAME + ".exe" , BuildTarget.StandaloneWindows64, BuildOptions.None);
     }
 
     [MenuItem("Custom/CI/Build WebGL")]
@@ -37,10 +37,17 @@ public class BuildScript {
     static void GenericBuild(string[] scenes, string target_dir, BuildTarget build_target, BuildOptions build_options)
     {
         EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTargetGroup.Standalone, build_target);
-        string res = BuildPipeline.BuildPlayer(scenes, target_dir, build_target, build_options).summary.ToString();
-        if (res.Length > 0)
+        var res = BuildPipeline.BuildPlayer(scenes, target_dir, build_target, build_options);
+        if (res.summary.result == UnityEditor.Build.Reporting.BuildResult.Failed)
         {
-            throw new System.Exception("BuildPlayer failure: " + res);
+            string error = "Failed to build. Run Locally to confirm the build issue.";
+            Debug.Log(error);
+            throw new System.Exception(error + res.summary.ToString());
         }
+
+        //if (res.Length > 0)
+        //{
+        //    throw new System.Exception("BuildPlayer failure: " + res);
+        //}
     }
 }

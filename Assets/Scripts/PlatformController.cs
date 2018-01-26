@@ -117,8 +117,10 @@ public class PlatformController : RaycastController {
     bool init = true;
     void ResetToBeginning()
     {
+#if UNITY_EDITOR
         if (!UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode)
             return;
+#endif
 
         //check if we're booting up
         if (init)
