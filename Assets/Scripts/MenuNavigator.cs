@@ -33,7 +33,7 @@ public class MenuNavigator : MonoBehaviour
     public TextMeshProUGUI StartGameText;
     public TextMeshProUGUI OptionsText;
     public TextMeshProUGUI QuiteGameText;
-
+    [Space]
     public float NavigationDelay = 0.5f;
 
     private float navigationTimeOut = 0f;
@@ -45,38 +45,10 @@ public class MenuNavigator : MonoBehaviour
     private int menuItemLength;
     private int optionItemLength;
 
-    private void SetCurrentMenuItem()
-    {
-        switch (currMenuItem)
-        {
-            case MainMenuItem.MMI_START:
-                StartGameText.color = Color.yellow;
-                OptionsText.color = Color.white;
-                QuiteGameText.color = Color.white;
-                break;
-            case MainMenuItem.MMI_OPTIONS:
-                StartGameText.color = Color.white;
-                OptionsText.color = Color.yellow;
-                QuiteGameText.color = Color.white;
-                break;
-            case MainMenuItem.MMI_EXIT:
-                StartGameText.color = Color.white;
-                OptionsText.color = Color.white;
-                QuiteGameText.color = Color.yellow;
-                break;
-        }
-    }
-
     private void Awake()
     {
         menuItemLength = Enum.GetNames(typeof(MainMenuItem)).Length;
         optionItemLength = Enum.GetNames(typeof(OptionsItem)).Length;
-    }
-
-    // Use this for initialization
-    void Start()
-    {
-
     }
 
     // Update is called once per frame
@@ -113,19 +85,22 @@ public class MenuNavigator : MonoBehaviour
                     if (inputY == 1)
                     {
                         if (currentIdx == 0)
+                        {
                             currentIdx = menuItemLength;
+                        }
                         else
+                        {
                             currentIdx = --currentIdx % menuItemLength;
+                        }
                     }
                     else if (inputY == -1)
                     {
                         currentIdx = ++currentIdx % menuItemLength;
                     }
-
+                    
                     if ((MainMenuItem)currentIdx != currMenuItem)
                     {
                         currMenuItem = (MainMenuItem)currentIdx;
-                        SetCurrentMenuItem();
                     }
                 }
             }
