@@ -17,10 +17,18 @@ public class Note : MonoBehaviour {
     public Path EntryPath;
     public Path ExitPath;
 
+    public string EntryPathName;
+    public string ExitPathName;
+
     private Path currentPath;
     private PathCreator.Direction direction = PathCreator.Direction.Forward;
     private float posAlongPath;
     private bool finished;
+
+    private void Start()
+    {
+        currentPath = EntryPath;
+    }
 
     private void Update()
     {
@@ -35,7 +43,10 @@ public class Note : MonoBehaviour {
         else
         {
             if (currentPath == ExitPath)
-                finished = true;
+            {
+                transform.position = new Vector2(100, 100);
+                Destroy(gameObject);
+            }
             else
             {
                 direction = PathCreator.Direction.Backward;

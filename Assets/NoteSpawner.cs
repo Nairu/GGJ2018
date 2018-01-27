@@ -36,10 +36,14 @@ public class NoteSpawner : MonoBehaviour
         noteHitPoint.transform.position = Handles.PositionHandle(noteHitPoint.transform.position, noteHitPoint.transform.rotation);
     }
 
+    float currentTime = 0;
+
     public void Update()
     {
-        if (Time.time % 2 == 0)
+
+        if (Time.time - currentTime > 2)
         {
+            currentTime = Time.time;
             var startPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
             var endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
             if (endPath == startPath)
@@ -52,7 +56,9 @@ public class NoteSpawner : MonoBehaviour
             Note n = note.GetComponent<Note>();
             n.EntryPath = startPath.path;
             n.ExitPath = endPath.path;
-            Instantiate(note, transform);
+            n.EntryPathName = startPath.gameObject.name;
+            n.ExitPathName = endPath.gameObject.name;
+            Instantiate(note, new Vector3(100, 100), Quaternion.identity, transform);
         }
     }
 

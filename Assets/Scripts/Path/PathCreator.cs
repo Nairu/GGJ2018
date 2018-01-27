@@ -49,16 +49,10 @@ public class PathCreator : MonoBehaviour
         {
             var pointInSegment = path.GetPointPositionsInSegment(i);
             curLength += ApproxSegmentLength(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3]);
-            //Debug.Log("Position on line: " + t);
             if (t < (curLength / totalPathLength))
             {
-                Debug.Log("Segment we're returning: " + i);
-                
-                Debug.Log("t: " + t + " | curLenght: " + curLength + " | totalPathLength: "+ totalPathLength);
                 time_in_seg = Mathf.Abs(t - ((curLength - ApproxSegmentLength(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3])) / totalPathLength));
                 Mathf.Clamp01(time_in_seg);
-                Debug.Log("Time in seg: " + time_in_seg);
-
                 return i;
             }
         }
@@ -84,9 +78,6 @@ public class PathCreator : MonoBehaviour
         {
             var pointInSegment = path.GetPointPositionsInSegment(currentSegment);
             float segmentLength = ApproxSegmentLength(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3]);
-
-            //Debug.Log("TotalSpeed: " + totalSpeed + " | SegmentLength: " + segmentLength + " | TotalTimeToTraverse: " + totalTimeToTraverse + " | AmountAlongPath: " + amountAlongSegment);
-            //Debug.Log("Total Calculated Value: " + (totalSpeed / (segmentLength / totalTimeToTraverse)) * amountAlongSegment);
             return CubicCurve(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3], (totalSpeed / (segmentLength / totalTimeToTraverse)) * amountAlongSegment);
         }
     }
@@ -95,44 +86,6 @@ public class PathCreator : MonoBehaviour
     {
         float totalLength = ApproxBezierLength(p);
         return totalLength / time;
-
-        //float percentage = t * 100;
-        //float currentLengthCalc = 0;
-
-        //Vector2[] segmentPoints = new Vector2[4];
-        //float segmentLength;
-
-        //float amountIntoSegment = 0;
-
-        //for (int i = 0; i < p.NumSegments; i++)
-        //{
-        //    var points = p.GetPointPositionsInSegment(i);
-        //    float currentSegmentLength = ApproxSegmentLength(points[0], points[1], points[2], points[3]);
-        //    currentLengthCalc += currentSegmentLength;
-        //    if (percentage < (currentLengthCalc / totalLength) * 100)
-        //    {
-        //        //we must lie between the point i and the previous point
-        //        segmentPoints = points;
-        //        segmentLength = currentSegmentLength;
-        //        amountIntoSegment = (percentage - ((currentLengthCalc / totalLength) * 100)) / 100;
-        //        break;
-        //    }
-        //}
-
-        //return CubicCurve(segmentPoints[0], segmentPoints[1], segmentPoints[2], segmentPoints[3], amountIntoSegment);
-
-        //if (segment < p.path.NumSegments)
-        //{
-        //    points = p.path.GetPointsInSegment(segment);
-        //    noteTransform.position = PathCreator.CubicCurve(points[0], points[1], points[2], points[3], pos);
-        //    pos += Time.deltaTime / PathCreator.ApproxLength(points[0], points[1], points[2], points[3]) * Speed;
-
-        //    if (pos > 1)
-        //    {
-        //        pos = 0;
-        //        segment++;
-        //    }
-        //}
     }
 
     public static float ApproxSegmentLength(Vector2 a, Vector2 b, Vector2 c, Vector2 d)

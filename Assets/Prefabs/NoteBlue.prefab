@@ -81,7 +81,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1955467340930528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.137, y: 2.767, z: -0.1171875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 4080990731610240}
@@ -94,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699029178048396}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.137, y: 2.767, z: -0.1171875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children: []
   m_Father: {fileID: 4080990731610240}
@@ -111,11 +111,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f6a0b68e73b65429151e68eef1ba7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EntryPath:
-    points: []
-  ExitPath:
-    points: []
   ControllerButton: 2
+  EntryPath:
+    points:
+    - Position: {x: -1.25553, y: 2.284341}
+      Type: 1
+    - Position: {x: -1.2591388, y: 2.161774}
+      Type: 0
+    - Position: {x: -1.3229475, y: 2.0257585}
+      Type: 0
+    - Position: {x: -1.2177991, y: 1.5321842}
+      Type: 1
+    - Position: {x: -1.1253562, y: 1.0982506}
+      Type: 0
+    - Position: {x: -0.8563425, y: 1.0460517}
+      Type: 0
+    - Position: {x: -0.63062996, y: 0.8478618}
+      Type: 1
+    - Position: {x: -0.43556386, y: 0.6765814}
+      Type: 0
+    - Position: {x: -0.40507567, y: 0.51898146}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
+      Type: 1
+  ExitPath:
+    points:
+    - Position: {x: 2.1693933, y: 1.7194598}
+      Type: 1
+    - Position: {x: 2.896146, y: 1.6900433}
+      Type: 0
+    - Position: {x: 2.8206584, y: 1.1012068}
+      Type: 0
+    - Position: {x: 2.7062917, y: 0.954906}
+      Type: 1
+    - Position: {x: 2.5172606, y: 0.71309274}
+      Type: 0
+    - Position: {x: 2.231285, y: 0.40375644}
+      Type: 0
+    - Position: {x: 1.5835248, y: 0.2992217}
+      Type: 1
+    - Position: {x: 0.9615489, y: 0.1988481}
+      Type: 0
+    - Position: {x: 0.6832262, y: 0.61434996}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
+      Type: 1
+  EntryPathName: 
+  ExitPathName: 
 --- !u!212 &212407473067023806
 SpriteRenderer:
   m_ObjectHideFlags: 1
