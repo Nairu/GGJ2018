@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class ColourAdjuster : MonoBehaviour
 {
-    [System.Serializable]
     public enum TheColour
     {
         Red,
@@ -13,36 +14,65 @@ public class ColourAdjuster : MonoBehaviour
         Blue
     }
 
+    public float Red
+    {
+        get
+        {
+            return currColour.r;
+        }
+    }
+
+    public float Green
+    {
+        get
+        {
+            return currColour.g;
+        }
+    }
+
+    public float Blue
+    {
+        get
+        {
+            return currColour.b;
+        }
+    }
+
     public TheColour BlockColour = TheColour.Red;
     [Range(0, 1)]
     public float Speed;
-
-    private Color colour = new Color(1, 0, 0);
+    public TextMeshProUGUI ProTextMesh;
+    public bool IsSelected = false;
+    
     private RawImage rawImage;
-    private Vector3 ZoopleColour;
+    private Color currColour;
 
     void Awake()
     {
         rawImage = GetComponent<RawImage>();
-        
+        Vector3 colour = Vector3.zero;
+
         switch (BlockColour)
         {
             case TheColour.Red:
-                ZoopleColour = new Vector3(1, 0, 0);
+                colour.x = 1;
                 break;
             case TheColour.Green:
-                ZoopleColour = new Vector3(0, 1, 0);
+                colour.y = 1;
                 break;
             case TheColour.Blue:
-                ZoopleColour = new Vector3(0, 0, 1);
+                colour.z = 1;
                 break;
         }
-        rawImage.color = new Color(ZoopleColour.x, ZoopleColour.y, ZoopleColour.z);
+        rawImage.color = new Color(colour.x, colour.y, colour.z);
+        currColour = rawImage.color;
     }
 
     void Update()
     {
-        Color currColour = rawImage.color;
+        if (!IsSelected)
+            return;
+
         Color newColour = currColour;
         float value = 0f;
 
@@ -52,31 +82,45 @@ public class ColourAdjuster : MonoBehaviour
                 value = -Speed;
             else if (Input.GetKey(KeyCode.RightArrow))
                 value = Speed;
-
-            Color temp = currColour;
+            value *= Time.deltaTime;
 
             switch (BlockColour)
             {
                 case TheColour.Red:
-                    temp.r += value;
+                    newColour.r = Mathf.Clamp01(currColour.r + value);
                     break;
                 case TheColour.Green:
-                    temp.g += value;
+                    newColour.g = Mathf.Clamp01(currColour.g + value);
                     break;
                 case TheColour.Blue:
-                    temp.b += value;
+                    newColour.b = Mathf.Clamp01(currColour.b + value);
                     break;
             }
 
-            newColour = Color.Lerp(currColour, temp, Time.deltaTime);
-
             if (currColour != newColour)
-                rawImage.color = newColour;
+            {
+                currColour = newColour;
+                int rgbValue = 0;
+
+                switch (BlockColour)
+                {
+                    case TheColour.Red:
+                        rgbValue = ConvertToTwoFiveFive(newColour.r);
+                        break;
+                    case TheColour.Green:
+                        rgbValue = ConvertToTwoFiveFive(newColour.g);
+                        break;
+                    case TheColour.Blue:
+                        rgbValue = ConvertToTwoFiveFive(newColour.b);
+                        break;
+                }
+                ProTextMesh.text = rgbValue.ToString();
+            }
         }
     }
 
-    Color ConvertRGB(float r, float g, float b)
+    int ConvertToTwoFiveFive(float value)
     {
-        return new Color(r / 255f, g / 255f, b / 255f);
+        return Convert.ToInt32(255 * value);
     }
 }
