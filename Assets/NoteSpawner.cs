@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Linq;
 
-public class NoteSpawner : MonoBehaviour {
+public class NoteSpawner : MonoBehaviour
+{
 
     public GameObject noteHitPoint;
     public Vector3 noteHitPosition
@@ -21,71 +22,39 @@ public class NoteSpawner : MonoBehaviour {
     [Range(0, 0.5f)]
     public float BadHitRange;
 
-    public Transform noteATransform;
-    //public Transform noteBTransform;
-    
-    private float pos = 0;
+    public GameObject[] Notes;
 
-    //public Vector3[] PathPoints;
-    public PathCreator p;
-    public PathCreator p2;
-    Vector2[] points;
-    int segment = 0;
+    MultiPathManager manager;
+
+    private void Start()
+    {
+        manager = GetComponent<MultiPathManager>();
+    }
 
     private void OnDrawGizmos()
     {
         noteHitPoint.transform.position = Handles.PositionHandle(noteHitPoint.transform.position, noteHitPoint.transform.rotation);
     }
 
-    public void UpdateNoteHitPosition()
+    public void Update()
     {
-        noteHitPoint.transform.position = m_noteHitPosition;
-    }
-
-    Dictionary<int, float> segmentDistances = new Dictionary<int, float>();
-    //float properTime;
-    //float normalisedTime;
-    float totalLength = 0;
-
-    void PrecalcDistances ()
-    {
-        totalLength = PathCreator.ApproxBezierLength(p.path);
-
-        for (int i = 0; i < p.path.NumSegments; i++)
+        if (Time.time % 2 == 0)
         {
-            var pointsOnPath = p.path.GetPointPositionsInSegment(i);
-            float segmentLength = PathCreator.ApproxSegmentLength(pointsOnPath[0], pointsOnPath[1], pointsOnPath[2], pointsOnPath[3]);
-            segmentDistances[i] = segmentLength;
-        }
+            var startPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+            var endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+            if (endPath == startPath)
+            {
+                while (endPath == startPath)
+                    endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+            }
 
-        //Debug.Log("Addition of distances: " + segmentDistances.Select(x => x.Value).Sum() + " vs Total Length: " + PathCreator.ApproxBezierLength(p.path));
-
-        //Debug.Log("First segment takes up: " + (segmentDistances[0] / PathCreator.ApproxBezierLength(p.path)) * 100);
-        //Debug.Log("Second segment takes up: " + (segmentDistances[1] / PathCreator.ApproxBezierLength(p.path)) * 100);
-        //Debug.Log("Time to traverse first segment: " + (1.5f / 100) * ((segmentDistances[0] / PathCreator.ApproxBezierLength(p.path)) * 100));
-        //Debug.Log("Time to traverse second segment: " + (1.5f / 100) * ((segmentDistances[1] / PathCreator.ApproxBezierLength(p.path)) * 100));
-    }
-
-    private void Start()
-    {
-        PrecalcDistances();
-    }
-
-    PathCreator.Direction noteDirectio = PathCreator.Direction.Forward;
-    // Update is called once per frame
-    void Update() {
-        
-        if (pos <= 1)
-        {
-            pos += Time.deltaTime;
-            noteATransform.position = PathCreator.PointOnLine(p.path, pos, 1.5f, noteDirectio);
-        }
-        else
-        {
-            p = p2;
-            noteDirectio = PathCreator.Direction.Backward;
-            pos = 0;
+            GameObject note = Notes[Random.Range(0, Notes.Length)];
+            Note n = note.GetComponent<Note>();
+            n.EntryPath = startPath.path;
+            n.ExitPath = endPath.path;
+            Instantiate(note, transform);
         }
     }
+
 }
 

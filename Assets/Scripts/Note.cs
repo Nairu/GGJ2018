@@ -2,30 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ButtonEnum
+{
+    A,
+    B,
+    X,
+    Y
+}
+
 public class Note : MonoBehaviour {
-    public bool A;
-    public bool B;
-    public bool X;
-    public bool Y;
 
-    public bool Held;
-    [Range(0, 10f)]
-    public float HeldTime;
+    public ButtonEnum ControllerButton;
 
-    [SerializeField]
-    private GameObject A_GO;
-    [SerializeField]
-    private GameObject B_GO;
-    [SerializeField]
-    private GameObject X_GO;
-    [SerializeField]
-    private GameObject Y_GO;
+    public Path EntryPath;
+    public Path ExitPath;
+
+    private Path currentPath;
+    private PathCreator.Direction direction = PathCreator.Direction.Forward;
+    private float posAlongPath;
+    private bool finished;
 
     private void Update()
     {
-        A_GO.SetActive(A);
-        B_GO.SetActive(B);
-        X_GO.SetActive(X);
-        Y_GO.SetActive(Y);
+        if (finished)
+            return;
+
+        if (posAlongPath <= 1)
+        {
+            posAlongPath += Time.deltaTime;
+            transform.position = PathCreator.PointOnLine(currentPath, posAlongPath, 1, direction);
+        }
+        else
+        {
+            if (currentPath == ExitPath)
+                finished = true;
+            else
+            {
+                direction = PathCreator.Direction.Backward;
+                posAlongPath = 0;
+                currentPath = ExitPath;
+            }
+        }
     }
+
 }

@@ -9,7 +9,7 @@ public class MultiPathManager : MonoBehaviour {
     //handles creating multiple paths and storing them all in one object.
     [HideInInspector, SerializeField] private PathCreator[] paths;
 
-    public int PointCount { get { return paths.Length; } }
+    public int PathCount { get { return paths.Length; } }
 
     public int GetPathIndex(PathCreator pc)
     {

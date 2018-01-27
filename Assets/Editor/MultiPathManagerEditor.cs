@@ -88,7 +88,7 @@ public class MultiPathManagerEditor : Editor {
         if (GUILayout.Button("X", GUILayout.Width(20)))
         {
             Undo.RegisterCompleteObjectUndo(manager, "Remove Point");
-            points.MoveArrayElement(manager.GetPathIndex(pathCreator), manager.PointCount - 1);
+            points.MoveArrayElement(manager.GetPathIndex(pathCreator), manager.PathCount - 1);
             points.arraySize--;
             DestroyImmediate(pathCreator.gameObject);
             return;
