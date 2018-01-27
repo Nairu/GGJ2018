@@ -22,8 +22,7 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Melanchall.DryWetMidi.Smf.Interaction.Note n = f.GetNotes().AtTime(1).First();
-        if (n.NoteName == Melanchall.DryWetMidi.Common.NoteName.A)
-            Debug.Log("CSHARP");
+        foreach(var v in f.GetNotes())
+        Debug.Log(v.NoteNumber);
     }
 }
