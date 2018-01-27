@@ -170,19 +170,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
+    - Position: {x: -2.9707391, y: 0.88130635}
+      Type: 1
+    - Position: {x: -2.8897243, y: 0.6898416}
+      Type: 0
+    - Position: {x: -2.2326841, y: 0.19905971}
+      Type: 0
+    - Position: {x: -1.7609195, y: 0.22066335}
+      Type: 1
+    - Position: {x: -1.2044312, y: 0.2461468}
+      Type: 0
+    - Position: {x: -0.9874248, y: 0.9210728}
+      Type: 0
     - Position: {x: 0, y: 0.7}
-      Type: 1
-    - Position: {x: -0.11798424, y: 0.7083721}
-      Type: 0
-    - Position: {x: -0.34073043, y: 0.6698936}
-      Type: 0
-    - Position: {x: -0.5280628, y: 0.71193814}
-      Type: 1
-    - Position: {x: -1.1193254, y: 0.84463996}
-      Type: 0
-    - Position: {x: -1.6501725, y: -0.5481037}
-      Type: 0
-    - Position: {x: -2.9264865, y: 0.8674023}
       Type: 1
 --- !u!4 &128358069
 Transform:
@@ -227,11 +227,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteHitPoint: {fileID: 86966346}
-  PerfectHitRange: 0.0595
-  OkayHitRange: 0.199
+  PerfectHitRange: 0.0508
+  OkayHitRange: 0.186
   BadHitRange: 0.373
-  noteATransform: {fileID: 903036944}
-  p: {fileID: 1163034168}
+  noteATransform: {fileID: 1527205679}
+  p: {fileID: 1218181571}
+  p2: {fileID: 1163034168}
 --- !u!212 &132708606
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -348,13 +349,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: -0.1531924, y: 2.086112}
       Type: 1
-    - Position: {x: -0.121012166, y: 1.1027164}
+    - Position: {x: -0.2630509, y: 1.7912959}
       Type: 0
-    - Position: {x: -0.28784347, y: 1.7470396}
+    - Position: {x: -0.16986838, y: 1.203453}
       Type: 0
-    - Position: {x: -0.1531924, y: 2.0861123}
+    - Position: {x: -0.09572184, y: 1.1230284}
+      Type: 1
+    - Position: {x: 0.009665638, y: 1.0087177}
+      Type: 0
+    - Position: {x: -0.0097053945, y: 0.8212334}
+      Type: 0
+    - Position: {x: 0, y: 0.7}
       Type: 1
 --- !u!4 &138209578
 Transform:
@@ -398,19 +405,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
+    - Position: {x: 0.6719874, y: 2.33506}
+      Type: 1
+    - Position: {x: 0.16754027, y: 1.7011354}
+      Type: 0
+    - Position: {x: 0.16603959, y: 1.3840888}
+      Type: 0
+    - Position: {x: 0.12742583, y: 1.204474}
+      Type: 1
+    - Position: {x: 0.09471281, y: 1.0523069}
+      Type: 0
+    - Position: {x: 0.05367315, y: 0.92646056}
+      Type: 0
     - Position: {x: 0, y: 0.7}
-      Type: 1
-    - Position: {x: 0.13975011, y: 1.6702573}
-      Type: 0
-    - Position: {x: 0.38408184, y: 1.8893422}
-      Type: 0
-    - Position: {x: 0.5010496, y: 2.1091993}
-      Type: 1
-    - Position: {x: 0.5474582, y: 2.1964307}
-      Type: 0
-    - Position: {x: 0.5847752, y: 2.263478}
-      Type: 0
-    - Position: {x: 0.6719874, y: 2.3350604}
       Type: 1
 --- !u!4 &531173991
 Transform:
@@ -454,19 +461,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
+    - Position: {x: 0.554084, y: -0.96315324}
+      Type: 1
+    - Position: {x: 0.5535618, y: -0.18937576}
+      Type: 0
+    - Position: {x: 0.34938383, y: 0.19752997}
+      Type: 0
+    - Position: {x: 0.28018445, y: 0.28120208}
+      Type: 1
+    - Position: {x: 0.1961878, y: 0.38276622}
+      Type: 0
+    - Position: {x: 0.066506654, y: 0.56941295}
+      Type: 0
     - Position: {x: 0, y: 0.7}
-      Type: 1
-    - Position: {x: 0.07131064, y: 0.58704585}
-      Type: 0
-    - Position: {x: 0.20376018, y: 0.37756312}
-      Type: 0
-    - Position: {x: 0.272942, y: 0.2938764}
-      Type: 1
-    - Position: {x: 0.5217098, y: -0.007048864}
-      Type: 0
-    - Position: {x: 0.5210269, y: -0.6225422}
-      Type: 0
-    - Position: {x: 0.55626076, y: -0.89785004}
       Type: 1
 --- !u!4 &788654654
 Transform:
@@ -481,10 +488,6 @@ Transform:
   m_Father: {fileID: 132708607}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &903036944 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 420702, guid: c2cf9bae85280df498684a5d4a0379e5, type: 2}
-  m_PrefabInternal: {fileID: 1338510660}
 --- !u!1 &918596047
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,19 +517,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
+    - Position: {x: -1.6268264, y: -1.0024525}
+      Type: 1
+    - Position: {x: -1.3236165, y: -0.4498496}
+      Type: 0
+    - Position: {x: -1.210192, y: -0.31420708}
+      Type: 0
+    - Position: {x: -0.9295545, y: -0.106597915}
+      Type: 1
+    - Position: {x: -0.56283545, y: 0.16469245}
+      Type: 0
+    - Position: {x: -0.14772683, y: 0.3650177}
+      Type: 0
     - Position: {x: 0, y: 0.7}
-      Type: 1
-    - Position: {x: -0.10005818, y: 0.5234357}
-      Type: 0
-    - Position: {x: -0.2009347, y: 0.37678552}
-      Type: 0
-    - Position: {x: -0.3127878, y: 0.29906514}
-      Type: 1
-    - Position: {x: -0.49113965, y: 0.17513856}
-      Type: 0
-    - Position: {x: -1.3388424, y: -0.20504944}
-      Type: 0
-    - Position: {x: -1.6293931, y: -0.9978178}
       Type: 1
 --- !u!4 &918596049
 Transform:
@@ -624,25 +627,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
+    - Position: {x: 2.9276586, y: 0.107402235}
+      Type: 1
+    - Position: {x: 2.4810238, y: 0.36147335}
+      Type: 0
+    - Position: {x: 2.2119677, y: 0.23440674}
+      Type: 0
+    - Position: {x: 1.5647767, y: 0.2756245}
+      Type: 1
+    - Position: {x: 1.2974542, y: 0.29264954}
+      Type: 0
+    - Position: {x: 1.0122607, y: 0.4456717}
+      Type: 0
+    - Position: {x: 0.59881705, y: 0.5780164}
+      Type: 1
+    - Position: {x: 0.31289196, y: 0.66954195}
+      Type: 0
+    - Position: {x: 0.17502952, y: 0.6710501}
+      Type: 0
     - Position: {x: 0, y: 0.7}
-      Type: 1
-    - Position: {x: 1.0018957, y: 0.525354}
-      Type: 0
-    - Position: {x: 1.0767525, y: 0.3365364}
-      Type: 0
-    - Position: {x: 1.544926, y: 0.2820545}
-      Type: 1
-    - Position: {x: 1.994006, y: 0.22979455}
-      Type: 0
-    - Position: {x: 2.1507084, y: 0.3142957}
-      Type: 0
-    - Position: {x: 2.4472108, y: 0.26722014}
-      Type: 1
-    - Position: {x: 2.7437131, y: 0.22014457}
-      Type: 0
-    - Position: {x: 2.7887158, y: 0.20462045}
-      Type: 0
-    - Position: {x: 2.9570727, y: 0.08218992}
       Type: 1
 --- !u!4 &1163034169
 Transform:
@@ -767,19 +770,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
+    - Position: {x: -2.5099416, y: 1.5987313}
+      Type: 1
+    - Position: {x: -1.883805, y: 1.2222346}
+      Type: 0
+    - Position: {x: -1.8816913, y: 1.6186253}
+      Type: 0
+    - Position: {x: -1.304135, y: 1.5677345}
+      Type: 1
+    - Position: {x: -0.71467274, y: 1.5157946}
+      Type: 0
+    - Position: {x: -0.46529105, y: 1.1628592}
+      Type: 0
+    - Position: {x: -0.3106787, y: 0.97990495}
+      Type: 1
+    - Position: {x: -0.14312072, y: 0.78163207}
+      Type: 0
+    - Position: {x: -0.20701051, y: 0.8846397}
+      Type: 0
     - Position: {x: 0, y: 0.7}
-      Type: 1
-    - Position: {x: -0.87052274, y: 1.6303296}
-      Type: 0
-    - Position: {x: -0.97421193, y: 1.4871448}
-      Type: 0
-    - Position: {x: -1.4402137, y: 1.5648191}
-      Type: 1
-    - Position: {x: -1.6780876, y: 1.6044685}
-      Type: 0
-    - Position: {x: -2.1131296, y: 1.2211598}
-      Type: 0
-    - Position: {x: -2.5403094, y: 1.6063229}
       Type: 1
 --- !u!4 &1218181572
 Transform:
@@ -841,6 +850,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 157224, guid: c2cf9bae85280df498684a5d4a0379e5, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2cf9bae85280df498684a5d4a0379e5, type: 2}
   m_IsPrefabParent: 0
@@ -863,7 +876,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1979546368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,6 +894,7 @@ MonoBehaviour:
   BadHitRange: 0
   noteATransform: {fileID: 1527205679}
   p: {fileID: 138209577}
+  p2: {fileID: 0}
 --- !u!4 &1979546369
 Transform:
   m_ObjectHideFlags: 0
@@ -923,19 +937,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: 1.668348, y: 1.968243}
       Type: 1
-    - Position: {x: 0.06281248, y: 0.8185999}
+    - Position: {x: 1.4493042, y: 1.4876462}
       Type: 0
-    - Position: {x: 0.27772123, y: 0.9902322}
+    - Position: {x: 0.61216724, y: 1.1654165}
       Type: 0
     - Position: {x: 0.44065127, y: 1.076675}
       Type: 1
-    - Position: {x: 0.55382234, y: 1.1367182}
+    - Position: {x: 0.32686663, y: 1.0178035}
       Type: 0
-    - Position: {x: 1.4139314, y: 1.4639294}
+    - Position: {x: 0.09125072, y: 0.9602595}
       Type: 0
-    - Position: {x: 1.6683478, y: 1.9682429}
+    - Position: {x: 0, y: 0.7}
       Type: 1
 --- !u!4 &2091754201
 Transform:
