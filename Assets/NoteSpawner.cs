@@ -22,7 +22,10 @@ public class NoteSpawner : MonoBehaviour
     [Range(0, 0.5f)]
     public float BadHitRange;
 
-    public GameObject[] Notes;
+    public GameObject NoteA;
+    public GameObject NoteB;
+    public GameObject NoteX;
+    public GameObject NoteY;
 
     MultiPathManager manager;
 
@@ -40,27 +43,49 @@ public class NoteSpawner : MonoBehaviour
 
     public void Update()
     {
-
-        if (Time.time - currentTime > 2)
-        {
-            currentTime = Time.time;
-            var startPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
-            var endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
-            if (endPath == startPath)
-            {
-                while (endPath == startPath)
-                    endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
-            }
-
-            GameObject note = Notes[Random.Range(0, Notes.Length)];
-            Note n = note.GetComponent<Note>();
-            n.EntryPath = startPath.path;
-            n.ExitPath = endPath.path;
-            n.EntryPathName = startPath.gameObject.name;
-            n.ExitPathName = endPath.gameObject.name;
-            Instantiate(note, new Vector3(100, 100), Quaternion.identity, transform);
-        }
+        
     }
 
+    public void SpawnNote(ButtonEnum num)
+    {
+        var startPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+        var endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+        if (endPath == startPath)
+        {
+            while (endPath == startPath)
+                endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+        }
+        GameObject note;
+        Note n;
+        switch (num)
+        {
+            case ButtonEnum.A:
+                note = NoteA;
+                n = note.GetComponent<Note>();
+                break;
+            case ButtonEnum.B:
+                note = NoteB;
+                n = note.GetComponent<Note>();
+                break;
+            case ButtonEnum.X:
+                note = NoteX;
+                n = note.GetComponent<Note>();
+                break;
+            case ButtonEnum.Y:
+                note = NoteY;
+                n = note.GetComponent<Note>();
+                break;
+            default:
+                Debug.LogError("SOMETHING IS VERY VERY WRONG!");
+                n = new Note();
+                note = new GameObject();
+                break;
+        }
+        n.EntryPath = startPath.path;
+        n.ExitPath = endPath.path;
+        n.EntryPathName = startPath.gameObject.name;
+        n.ExitPathName = endPath.gameObject.name;
+        Instantiate(note, new Vector3(100, 100), Quaternion.identity, transform);
+    }
 }
 
