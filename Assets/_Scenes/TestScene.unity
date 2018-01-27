@@ -230,9 +230,10 @@ MonoBehaviour:
   PerfectHitRange: 0.0595
   OkayHitRange: 0.199
   BadHitRange: 0.373
-  noteATransform: {fileID: 0}
+  noteATransform: {fileID: 4679174138103914, guid: 903f3850f66a2a04390eb9ab77f08f4b,
+    type: 2}
   Speed: 10
-  p: {fileID: 0}
+  p: {fileID: 918596048}
 --- !u!212 &132708606
 SpriteRenderer:
   m_ObjectHideFlags: 0
