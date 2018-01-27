@@ -32,10 +32,12 @@ public class NoteSpawner : MonoBehaviour {
     Vector2[] points;
     int segment = 0;
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         noteHitPoint.transform.position = Handles.PositionHandle(noteHitPoint.transform.position, noteHitPoint.transform.rotation);
     }
+#endif
 
     public void UpdateNoteHitPosition()
     {

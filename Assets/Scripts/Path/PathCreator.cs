@@ -153,6 +153,7 @@ public class PathCreator : MonoBehaviour
         return length;
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (path == null || path.NumPoints == 0)
@@ -164,4 +165,5 @@ public class PathCreator : MonoBehaviour
             Handles.DrawBezier(points[0], points[3], points[1], points[2], Color.green, null, 2);
         }
     }
+#endif
 }
