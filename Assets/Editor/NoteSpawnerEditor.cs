@@ -29,7 +29,7 @@ public class NoteSpawnerEditor : Editor {
             {
                 Undo.RecordObject(ns, "Change Position");
                 ns.noteHitPosition = newTargetPosition;
-                ns.UpdateNoteHitPosition();
+                //ns.UpdateNoteHitPosition();
             }
         }
         else

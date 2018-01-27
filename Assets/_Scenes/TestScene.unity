@@ -113,6 +113,58 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &52549483
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4765103925588354, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 82273765469886394, guid: 67ab9005f748f9443b6f1eaf94fa8d5c,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e453ba4ad637e0a43867fdf4a1562ac2, type: 3}
+    - target: {fileID: 114769029021601148, guid: 67ab9005f748f9443b6f1eaf94fa8d5c,
+        type: 2}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 132708605}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 67ab9005f748f9443b6f1eaf94fa8d5c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &86966346
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 86966346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: -0.23, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 132708607}
@@ -170,19 +222,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: -3.1596808, y: 1.7505326}
       Type: 1
-    - Position: {x: -0.11798424, y: 0.7083721}
+    - Position: {x: -3.0712156, y: 1.0381675}
       Type: 0
-    - Position: {x: -0.34073043, y: 0.6698936}
+    - Position: {x: -2.7033622, y: 0.626855}
       Type: 0
-    - Position: {x: -0.5280628, y: 0.71193814}
+    - Position: {x: -2.2484639, y: 0.49998593}
       Type: 1
-    - Position: {x: -1.1193254, y: 0.84463996}
+    - Position: {x: -1.7935472, y: 0.37311172}
       Type: 0
-    - Position: {x: -1.6501725, y: -0.5481037}
+    - Position: {x: -1.4841826, y: 0.54648066}
       Type: 0
-    - Position: {x: -2.9264865, y: 0.8674023}
+    - Position: {x: -0.9359242, y: 0.32230887}
+      Type: 1
+    - Position: {x: -0.5759134, y: 0.17510775}
+      Type: 0
+    - Position: {x: -0.41380268, y: 0.010769764}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &128358069
 Transform:
@@ -227,13 +285,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteHitPoint: {fileID: 86966346}
-  PerfectHitRange: 0.0595
-  OkayHitRange: 0.199
+  PerfectHitRange: 0.0508
+  OkayHitRange: 0.186
   BadHitRange: 0.373
-  noteATransform: {fileID: 4679174138103914, guid: 903f3850f66a2a04390eb9ab77f08f4b,
-    type: 2}
-  Speed: 10
-  p: {fileID: 918596048}
+  NoteA: {fileID: 1096408246446066, guid: 0688dd954de488e48b17bb0c96a895cd, type: 2}
+  NoteB: {fileID: 1405171357027852, guid: c4debbb30ba49c3419f2799599b1bc31, type: 2}
+  NoteX: {fileID: 1667069275650852, guid: d4a53968d9afbd54db0ec4c151404a84, type: 2}
+  NoteY: {fileID: 1760001093047380, guid: 602f7e81942f36648a24e067c57d1626, type: 2}
 --- !u!212 &132708606
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -268,8 +326,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e5cc7a53d648634f81c29ccd8a26240, type: 3}
+  m_SortingOrder: -3
+  m_Sprite: {fileID: 21300000, guid: 9a928346802f47843985613b83d011a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -350,13 +408,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: -0.18366385, y: 2.2537057}
       Type: 1
-    - Position: {x: -0.121012166, y: 1.1027164}
+    - Position: {x: 0.13307902, y: 2.014754}
       Type: 0
-    - Position: {x: -0.28784347, y: 1.7470396}
+    - Position: {x: 0.21301195, y: 1.6945633}
       Type: 0
-    - Position: {x: -0.1531924, y: 2.0861123}
+    - Position: {x: 0.16328642, y: 1.2449148}
+      Type: 1
+    - Position: {x: 0.120017245, y: 0.8536486}
+      Type: 0
+    - Position: {x: 0.025844812, y: 0.587618}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &138209578
 Transform:
@@ -400,19 +464,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: 2.1693933, y: 1.7194598}
       Type: 1
-    - Position: {x: 0.13975011, y: 1.6702573}
+    - Position: {x: 2.896146, y: 1.6900433}
       Type: 0
-    - Position: {x: 0.38408184, y: 1.8893422}
+    - Position: {x: 2.8206584, y: 1.1012068}
       Type: 0
-    - Position: {x: 0.5010496, y: 2.1091993}
+    - Position: {x: 2.7062917, y: 0.954906}
       Type: 1
-    - Position: {x: 0.5474582, y: 2.1964307}
+    - Position: {x: 2.5172606, y: 0.71309274}
       Type: 0
-    - Position: {x: 0.5847752, y: 2.263478}
+    - Position: {x: 2.231285, y: 0.40375644}
       Type: 0
-    - Position: {x: 0.6719874, y: 2.3350604}
+    - Position: {x: 1.5835248, y: 0.2992217}
+      Type: 1
+    - Position: {x: 0.9615489, y: 0.1988481}
+      Type: 0
+    - Position: {x: 0.6832262, y: 0.61434996}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &531173991
 Transform:
@@ -456,19 +526,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: 3.5536225, y: -1.9255254}
       Type: 1
-    - Position: {x: 0.07131064, y: 0.58704585}
+    - Position: {x: 3.316418, y: -1.0561616}
       Type: 0
-    - Position: {x: 0.20376018, y: 0.37756312}
+    - Position: {x: 2.242509, y: -0.960807}
       Type: 0
-    - Position: {x: 0.272942, y: 0.2938764}
+    - Position: {x: 1.9496945, y: -0.91523266}
       Type: 1
-    - Position: {x: 0.5217098, y: -0.007048864}
+    - Position: {x: 1.4576212, y: -0.8386451}
       Type: 0
-    - Position: {x: 0.5210269, y: -0.6225422}
+    - Position: {x: 1.2559988, y: -0.9095707}
       Type: 0
-    - Position: {x: 0.55626076, y: -0.89785004}
+    - Position: {x: 0.6960342, y: -0.82739395}
+      Type: 1
+    - Position: {x: 0.17049724, y: -0.7502696}
+      Type: 0
+    - Position: {x: -0.12523723, y: -0.43487218}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &788654654
 Transform:
@@ -512,19 +588,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: -2.3274558, y: -2.1935225}
       Type: 1
-    - Position: {x: -0.10005818, y: 0.5234357}
+    - Position: {x: -1.8431485, y: -2.256843}
       Type: 0
-    - Position: {x: -0.2009347, y: 0.37678552}
+    - Position: {x: -1.5544341, y: -2.0499372}
       Type: 0
-    - Position: {x: -0.3127878, y: 0.29906514}
+    - Position: {x: -1.4250886, y: -1.9204636}
       Type: 1
-    - Position: {x: -0.49113965, y: 0.17513856}
+    - Position: {x: -1.239875, y: -1.7350662}
       Type: 0
-    - Position: {x: -1.3388424, y: -0.20504944}
+    - Position: {x: -1.0918744, y: -1.5023472}
       Type: 0
-    - Position: {x: -1.6293931, y: -0.9978178}
+    - Position: {x: -1.0532199, y: -1.2960488}
+      Type: 1
+    - Position: {x: -1.0067525, y: -1.0480528}
+      Type: 0
+    - Position: {x: -1.0282751, y: -0.8878372}
+      Type: 0
+    - Position: {x: -0.8242931, y: -0.6456776}
+      Type: 1
+    - Position: {x: -0.6707807, y: -0.46343368}
+      Type: 0
+    - Position: {x: -0.4407642, y: -0.27433544}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &918596049
 Transform:
@@ -568,25 +656,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: 3.6250544, y: -0.09993711}
       Type: 1
-    - Position: {x: 1.0018957, y: 0.525354}
+    - Position: {x: 3.275685, y: -0.64398956}
       Type: 0
-    - Position: {x: 1.0767525, y: 0.3365364}
+    - Position: {x: 3.098516, y: -0.7250143}
       Type: 0
-    - Position: {x: 1.544926, y: 0.2820545}
+    - Position: {x: 2.6945732, y: -0.79077405}
       Type: 1
-    - Position: {x: 1.994006, y: 0.22979455}
+    - Position: {x: 2.4301894, y: -0.8338143}
       Type: 0
-    - Position: {x: 2.1507084, y: 0.3142957}
+    - Position: {x: 1.8940661, y: -0.76889014}
       Type: 0
-    - Position: {x: 2.4472108, y: 0.26722014}
+    - Position: {x: 1.4750766, y: -0.5921781}
       Type: 1
-    - Position: {x: 2.7437131, y: 0.22014457}
+    - Position: {x: 1.198456, y: -0.4755113}
       Type: 0
-    - Position: {x: 2.7887158, y: 0.20462045}
+    - Position: {x: 0.72962415, y: -0.122020386}
       Type: 0
-    - Position: {x: 2.9570727, y: 0.08218992}
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &1163034169
 Transform:
@@ -642,7 +730,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.06697223, g: 0.17037868, b: 0.3301887, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -653,7 +741,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.25
+  orthographic size: 1.8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -676,7 +764,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1202351813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.716, z: -10}
+  m_LocalPosition: {x: -0.015, y: -0.19, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -711,19 +799,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: -1.25553, y: 2.284341}
       Type: 1
-    - Position: {x: -0.87052274, y: 1.6303296}
+    - Position: {x: -1.2591388, y: 2.161774}
       Type: 0
-    - Position: {x: -0.97421193, y: 1.4871448}
+    - Position: {x: -1.3229475, y: 2.0257585}
       Type: 0
-    - Position: {x: -1.4402137, y: 1.5648191}
+    - Position: {x: -1.2177991, y: 1.5321842}
       Type: 1
-    - Position: {x: -1.6780876, y: 1.6044685}
+    - Position: {x: -1.1253562, y: 1.0982506}
       Type: 0
-    - Position: {x: -2.1131296, y: 1.2211598}
+    - Position: {x: -0.8563425, y: 1.0460517}
       Type: 0
-    - Position: {x: -2.5403094, y: 1.6063229}
+    - Position: {x: -0.63062996, y: 0.8478618}
+      Type: 1
+    - Position: {x: -0.43556386, y: 0.6765814}
+      Type: 0
+    - Position: {x: -0.40507567, y: 0.51898146}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &1218181572
 Transform:
@@ -767,19 +861,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path:
     points:
-    - Position: {x: 0, y: 0.7}
+    - Position: {x: -3.480386, y: 1.2486944}
       Type: 1
-    - Position: {x: 0.06281248, y: 0.8185999}
+    - Position: {x: -3.3356123, y: 0.6280744}
       Type: 0
-    - Position: {x: 0.27772123, y: 0.9902322}
+    - Position: {x: -3.0235307, y: 0.3159783}
       Type: 0
-    - Position: {x: 0.44065127, y: 1.076675}
+    - Position: {x: -2.6062415, y: 0.117991574}
       Type: 1
-    - Position: {x: 0.55382234, y: 1.1367182}
+    - Position: {x: -2.2663414, y: -0.043277107}
       Type: 0
-    - Position: {x: 1.4139314, y: 1.4639294}
+    - Position: {x: -1.8867266, y: -0.16405165}
       Type: 0
-    - Position: {x: 1.6683478, y: 1.9682429}
+    - Position: {x: -1.1981459, y: -0.19807717}
+      Type: 1
+    - Position: {x: -0.88209486, y: -0.21369451}
+      Type: 0
+    - Position: {x: -0.48649263, y: -0.16911054}
+      Type: 0
+    - Position: {x: -0.23, y: -0.15}
       Type: 1
 --- !u!4 &2091754201
 Transform:

@@ -35,46 +35,57 @@ public class PathCreator : MonoBehaviour
             + (Mathf.Pow(t, 3) * d);
     }
 
-    public static Vector2 PointOnCurve(Path p, float t)
+    public enum Direction
     {
-        float totalLength = ApproxBezierLength(p);
-        float percentage = t * 100;
-        float currentLengthCalc = 0;
+        Forward,
+        Backward
+    }
 
-        Vector2[] segmentPoints = new Vector2[4];
-        float segmentLength;
+    private static int GetSegmentForPoint(Path path, float t, ref float time_in_seg, float totalPathLength)
+    {
+        float curLength = 0;
 
-        float amountIntoSegment = 0;
-
-        for (int i = 0; i < p.NumSegments; i++)
+        for (int i = 0; i < path.NumSegments; i++)
         {
-            var points = p.GetPointPositionsInSegment(i);
-            float currentSegmentLength = ApproxSegmentLength(points[0], points[1], points[2], points[3]);
-            currentLengthCalc += currentSegmentLength;
-            if (percentage < (currentLengthCalc / totalLength) * 100)
+            var pointInSegment = path.GetPointPositionsInSegment(i);
+            curLength += ApproxSegmentLength(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3]);
+            if (t < (curLength / totalPathLength))
             {
-                //we must lie between the point i and the previous point
-                segmentPoints = points;
-                segmentLength = currentSegmentLength;
-                amountIntoSegment = (percentage - ((currentLengthCalc / totalLength) * 100)) / 100;
-                break;
+                time_in_seg = Mathf.Abs(t - ((curLength - ApproxSegmentLength(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3])) / totalPathLength));
+                Mathf.Clamp01(time_in_seg);
+                return i;
             }
         }
 
-        return CubicCurve(segmentPoints[0], segmentPoints[1], segmentPoints[2], segmentPoints[3], amountIntoSegment);
+        //Debug.Log("Position on line: " + t);
+        return path.NumSegments;
+    }
 
-        //if (segment < p.path.NumSegments)
-        //{
-        //    points = p.path.GetPointsInSegment(segment);
-        //    noteTransform.position = PathCreator.CubicCurve(points[0], points[1], points[2], points[3], pos);
-        //    pos += Time.deltaTime / PathCreator.ApproxLength(points[0], points[1], points[2], points[3]) * Speed;
+    public static Vector2 PointOnLine(Path path, float t, float totalTimeToTraverse, Direction direction)
+    {
+        float totalLength = ApproxBezierLength(path);
+        float totalSpeed = (totalLength / totalTimeToTraverse);
+        float amountAlongPath = direction == Direction.Forward ? t : 1 - t;
+        float amountAlongSegment = 0;
+        int currentSegment = GetSegmentForPoint(path, amountAlongPath, ref amountAlongSegment, totalLength);
 
-        //    if (pos > 1)
-        //    {
-        //        pos = 0;
-        //        segment++;
-        //    }
-        //}
+        if (currentSegment == path.NumSegments)
+        {
+            var pointInSegment = path.GetPointPositionsInSegment(currentSegment - 1);
+            return CubicCurve(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3], 1);
+        }
+        else
+        {
+            var pointInSegment = path.GetPointPositionsInSegment(currentSegment);
+            float segmentLength = ApproxSegmentLength(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3]);
+            return CubicCurve(pointInSegment[0], pointInSegment[1], pointInSegment[2], pointInSegment[3], (totalSpeed / (segmentLength / totalTimeToTraverse)) * amountAlongSegment);
+        }
+    }
+
+    public static float SpeedOverPath(Path p, float time)
+    {
+        float totalLength = ApproxBezierLength(p);
+        return totalLength / time;
     }
 
     public static float ApproxSegmentLength(Vector2 a, Vector2 b, Vector2 c, Vector2 d)
@@ -95,6 +106,7 @@ public class PathCreator : MonoBehaviour
         return length;
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (path == null || path.NumPoints == 0)
@@ -106,4 +118,5 @@ public class PathCreator : MonoBehaviour
             Handles.DrawBezier(points[0], points[3], points[1], points[2], Color.green, null, 2);
         }
     }
+#endif
 }

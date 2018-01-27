@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Linq;
 
-public class NoteSpawner : MonoBehaviour {
+public class NoteSpawner : MonoBehaviour
+{
 
     public GameObject noteHitPoint;
     public Vector3 noteHitPosition
@@ -21,71 +22,70 @@ public class NoteSpawner : MonoBehaviour {
     [Range(0, 0.5f)]
     public float BadHitRange;
 
-    public Transform noteATransform;
-    //public Transform noteBTransform;
+    public GameObject NoteA;
+    public GameObject NoteB;
+    public GameObject NoteX;
+    public GameObject NoteY;
 
-    public float Speed = 10f;
-    private float pos = 0;
+    MultiPathManager manager;
 
-    //public Vector3[] PathPoints;
-    public PathCreator p;
-    Vector2[] points;
-    int segment = 0;
+    private void Start()
+    {
+        manager = GetComponent<MultiPathManager>();
+    }
 
     private void OnDrawGizmos()
     {
         noteHitPoint.transform.position = Handles.PositionHandle(noteHitPoint.transform.position, noteHitPoint.transform.rotation);
     }
 
-    public void UpdateNoteHitPosition()
-    {
-        noteHitPoint.transform.position = m_noteHitPosition;
-    }
+    float currentTime = 0;
 
-    // Update is called once per frame
-    void Update () {
-
-        if (p == null)
-            return;
-
-        if (segment < p.path.NumSegments)
-        {
-            points = p.path.GetPointPositionsInSegment(segment);
-            noteATransform.position = PathCreator.CubicCurve(points[0], points[1], points[2], points[3], pos);
-            pos += Time.deltaTime / PathCreator.ApproxSegmentLength(points[0], points[1], points[2], points[3]) * Speed;
-
-            if (pos > 1)
-            {
-                pos = 0;
-                segment++;
-            }
-        }
-
-        ////noteTransform.position = BezierCurve.GetQuadraticCurvePoint(bz.GetPointAt(0), bz.GetPointAt(1), bz.GetPointAt(2), 0.5f);
-        //var arr = bz.GetAnchorPoints();
-        //List<Vector3> vc = new List<Vector3>();
-        //foreach (var bzPoint in arr)
-        //    vc.Add(bzPoint.transform.position);
-        //vc.Reverse();
-
-        //bz.length;
-
-        //if (curBezierPoint < points.Length - 1)
-        //{
-        //    float approxLength = BezierCurve.ApproximateLength(points[curBezierPoint], points[curBezierPoint + 1]);
-        //    noteTransform.position = BezierCurve.GetPoint(points[curBezierPoint], points[curBezierPoint + 1], pos);
-        //    pos += Time.deltaTime / (approxLength * damping);
-
-        //    if (pos >= 1)
-        //    {
-        //        pos = 0;
-        //        curBezierPoint++;
-        //    }
-        //}
-    }
-    
-    void MovePoint()
+    public void Update()
     {
         
     }
+
+    public void SpawnNote(ButtonEnum num)
+    {
+        var startPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+        var endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+        if (endPath == startPath)
+        {
+            while (endPath == startPath)
+                endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
+        }
+        GameObject note;
+        Note n;
+        switch (num)
+        {
+            case ButtonEnum.A:
+                note = NoteA;
+                n = note.GetComponent<Note>();
+                break;
+            case ButtonEnum.B:
+                note = NoteB;
+                n = note.GetComponent<Note>();
+                break;
+            case ButtonEnum.X:
+                note = NoteX;
+                n = note.GetComponent<Note>();
+                break;
+            case ButtonEnum.Y:
+                note = NoteY;
+                n = note.GetComponent<Note>();
+                break;
+            default:
+                Debug.LogError("SOMETHING IS VERY VERY WRONG!");
+                n = new Note();
+                note = new GameObject();
+                break;
+        }
+        n.EntryPath = startPath.path;
+        n.ExitPath = endPath.path;
+        n.EntryPathName = startPath.gameObject.name;
+        n.ExitPathName = endPath.gameObject.name;
+        Instantiate(note, new Vector3(100, 100), Quaternion.identity, transform);
+    }
 }
+
