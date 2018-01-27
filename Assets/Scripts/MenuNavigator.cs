@@ -26,7 +26,10 @@ public class MenuNavigator : MonoBehaviour
         OI_BUTTON_X,
         OI_BUTTON_Y
     }
-
+    public Animator StartAnimator;
+    public Animator OptionsAnimator;
+    public Animator ExitAnimator;
+    [Space]
     public GameObject MainMenuScreen;
     public GameObject OptionsScreen;
     [Space]
@@ -51,8 +54,13 @@ public class MenuNavigator : MonoBehaviour
         optionItemLength = Enum.GetNames(typeof(OptionsItem)).Length;
     }
 
+    private void Start()
+    {
+        
+    }
+
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (navigationTimeOut >= NavigationDelay)
         {
@@ -101,6 +109,26 @@ public class MenuNavigator : MonoBehaviour
                     if ((MainMenuItem)currentIdx != currMenuItem)
                     {
                         currMenuItem = (MainMenuItem)currentIdx;
+
+                        StartAnimator.ResetTrigger("StartSelected");
+                        OptionsAnimator.ResetTrigger("OptionsSelected");
+                        ExitAnimator.ResetTrigger("ExitSelected");
+
+                        if (currMenuItem == MainMenuItem.MMI_START)
+                        {
+                            Debug.Log("Setting Start");
+                            StartAnimator.SetTrigger("StartSelected");                            
+                        }
+                        else if (currMenuItem == MainMenuItem.MMI_OPTIONS)
+                        {
+                            Debug.Log("Setting Options");
+                            OptionsAnimator.SetTrigger("OptionsSelected");                            
+                        }
+                        else
+                        {
+                            Debug.Log("Setting Exit");
+                            ExitAnimator.SetTrigger("ExitSelected");
+                        }
                     }
                 }
             }

@@ -150,7 +150,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.r
+    attribute: m_fontColor.r
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -178,7 +178,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.g
+    attribute: m_fontColor.g
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -206,7 +206,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.b
+    attribute: m_fontColor.b
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -234,7 +234,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.a
+    attribute: m_fontColor.a
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -262,7 +262,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.r
+    attribute: m_fontColor.r
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -290,7 +290,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.g
+    attribute: m_fontColor.g
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -318,7 +318,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.b
+    attribute: m_fontColor.b
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -346,7 +346,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.a
+    attribute: m_fontColor.a
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -374,7 +374,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.r
+    attribute: m_fontColor.r
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -402,7 +402,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.g
+    attribute: m_fontColor.g
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -430,7 +430,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.b
+    attribute: m_fontColor.b
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -458,7 +458,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.a
+    attribute: m_fontColor.a
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -486,21 +486,21 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 2850785607
-      attribute: 304273561
+      attribute: 4185109675
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 874860316
-      attribute: 304273561
+      attribute: 4185109675
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 3082691536
-      attribute: 304273561
+      attribute: 4185109675
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
@@ -528,63 +528,63 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 2850785607
-      attribute: 2526845255
+      attribute: 2110649717
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 2850785607
-      attribute: 4215373228
+      attribute: 269488542
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 2850785607
-      attribute: 2334886179
+      attribute: 1618666769
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 874860316
-      attribute: 2526845255
+      attribute: 2110649717
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 874860316
-      attribute: 4215373228
+      attribute: 269488542
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 874860316
-      attribute: 2334886179
+      attribute: 1618666769
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 3082691536
-      attribute: 2526845255
+      attribute: 2110649717
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 3082691536
-      attribute: 4215373228
+      attribute: 269488542
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 3082691536
-      attribute: 2334886179
+      attribute: 1618666769
       script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
       typeID: 114
       customType: 0
@@ -804,7 +804,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.r
+    attribute: m_fontColor.r
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -832,7 +832,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.g
+    attribute: m_fontColor.g
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -860,7 +860,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.b
+    attribute: m_fontColor.b
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -888,7 +888,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.a
+    attribute: m_fontColor.a
     path: MainMenu/Canvas/StartButton/Start
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -916,7 +916,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.r
+    attribute: m_fontColor.r
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -944,7 +944,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.g
+    attribute: m_fontColor.g
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -972,7 +972,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.b
+    attribute: m_fontColor.b
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -1000,7 +1000,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.a
+    attribute: m_fontColor.a
     path: MainMenu/Canvas/OptionsButton/Options
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -1028,7 +1028,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.r
+    attribute: m_fontColor.r
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -1056,7 +1056,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.g
+    attribute: m_fontColor.g
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -1084,7 +1084,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.b
+    attribute: m_fontColor.b
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
@@ -1112,7 +1112,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_Color.a
+    attribute: m_fontColor.a
     path: MainMenu/Canvas/ExitButton/Exit
     classID: 114
     script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}

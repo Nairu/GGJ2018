@@ -532,6 +532,7 @@ GameObject:
   - component: {fileID: 196518485}
   - component: {fileID: 196518484}
   - component: {fileID: 196518483}
+  - component: {fileID: 196518486}
   m_Layer: 5
   m_Name: OptionsButton
   m_TagString: Untagged
@@ -643,6 +644,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 196518481}
+--- !u!95 &196518486
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 196518481}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42dd5b5f3f81e1b4c935b5a73ce16548, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &299363783
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,12 +690,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84803ee7f284f784fb95818328b902ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartAnimator: {fileID: 541407799}
+  OptionsAnimator: {fileID: 196518486}
+  ExitAnimator: {fileID: 831793506}
   MainMenuScreen: {fileID: 1076619317}
   OptionsScreen: {fileID: 1660975792}
   StartGameText: {fileID: 1688158300}
   OptionsText: {fileID: 2045513663}
   QuiteGameText: {fileID: 656409952}
-  NavigationDelay: 0.15
+  NavigationDelay: 0.2
 --- !u!4 &299363785
 Transform:
   m_ObjectHideFlags: 0
@@ -849,17 +871,17 @@ MonoBehaviour:
     m_PressedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
+    m_NormalTrigger: Selected
+    m_HighlightedTrigger: 
+    m_PressedTrigger: 
+    m_DisabledTrigger: 
   m_Interactable: 1
   m_TargetGraphic: {fileID: 541407797}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
-        m_MethodName: StartGame
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -913,7 +935,7 @@ Animator:
   m_GameObject: {fileID: 541407794}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 959d7ba762acc9041aaf972bde4b5e36, type: 2}
+  m_Controller: {fileID: 9100000, guid: 42dd5b5f3f81e1b4c935b5a73ce16548, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1166,7 +1188,6 @@ GameObject:
   - component: {fileID: 656409951}
   - component: {fileID: 656409953}
   - component: {fileID: 656409952}
-  - component: {fileID: 656409954}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -1312,20 +1333,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 656409950}
---- !u!111 &656409954
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 656409950}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 282754f9c85d3f447a8c2b23653df9a4, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &831793501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,6 +1344,7 @@ GameObject:
   - component: {fileID: 831793505}
   - component: {fileID: 831793504}
   - component: {fileID: 831793503}
+  - component: {fileID: 831793506}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1448,6 +1456,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 831793501}
+--- !u!95 &831793506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 831793501}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42dd5b5f3f81e1b4c935b5a73ce16548, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &831816953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,7 +2391,6 @@ GameObject:
   - component: {fileID: 1688158299}
   - component: {fileID: 1688158301}
   - component: {fileID: 1688158300}
-  - component: {fileID: 1688158302}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -2511,20 +2536,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1688158298}
---- !u!111 &1688158302
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1688158298}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 282754f9c85d3f447a8c2b23653df9a4, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1001 &1912905714
 Prefab:
   m_ObjectHideFlags: 0
@@ -2640,7 +2651,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1945755649}
   - component: {fileID: 1945755650}
-  - component: {fileID: 1945755651}
   m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
@@ -2707,20 +2717,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
---- !u!111 &1945755651
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1945755648}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 282754f9c85d3f447a8c2b23653df9a4, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &2045513661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,7 +2727,6 @@ GameObject:
   - component: {fileID: 2045513662}
   - component: {fileID: 2045513664}
   - component: {fileID: 2045513663}
-  - component: {fileID: 2045513665}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -2877,17 +2872,3 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2045513661}
---- !u!111 &2045513665
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2045513661}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 282754f9c85d3f447a8c2b23653df9a4, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
