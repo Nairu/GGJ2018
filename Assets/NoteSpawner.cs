@@ -23,12 +23,12 @@ public class NoteSpawner : MonoBehaviour {
 
     public Transform noteATransform;
     //public Transform noteBTransform;
-
-    public float Speed = 10f;
+    
     private float pos = 0;
 
     //public Vector3[] PathPoints;
     public PathCreator p;
+    public PathCreator p2;
     Vector2[] points;
     int segment = 0;
 
@@ -42,50 +42,50 @@ public class NoteSpawner : MonoBehaviour {
         noteHitPoint.transform.position = m_noteHitPosition;
     }
 
-    // Update is called once per frame
-    void Update () {
+    Dictionary<int, float> segmentDistances = new Dictionary<int, float>();
+    //float properTime;
+    //float normalisedTime;
+    float totalLength = 0;
 
-        if (p == null)
-            return;
+    void PrecalcDistances ()
+    {
+        totalLength = PathCreator.ApproxBezierLength(p.path);
 
-        if (segment < p.path.NumSegments)
+        for (int i = 0; i < p.path.NumSegments; i++)
         {
-            points = p.path.GetPointPositionsInSegment(segment);
-            noteATransform.position = PathCreator.CubicCurve(points[0], points[1], points[2], points[3], pos);
-            pos += Time.deltaTime / PathCreator.ApproxSegmentLength(points[0], points[1], points[2], points[3]) * Speed;
-
-            if (pos > 1)
-            {
-                pos = 0;
-                segment++;
-            }
+            var pointsOnPath = p.path.GetPointPositionsInSegment(i);
+            float segmentLength = PathCreator.ApproxSegmentLength(pointsOnPath[0], pointsOnPath[1], pointsOnPath[2], pointsOnPath[3]);
+            segmentDistances[i] = segmentLength;
         }
 
-        ////noteTransform.position = BezierCurve.GetQuadraticCurvePoint(bz.GetPointAt(0), bz.GetPointAt(1), bz.GetPointAt(2), 0.5f);
-        //var arr = bz.GetAnchorPoints();
-        //List<Vector3> vc = new List<Vector3>();
-        //foreach (var bzPoint in arr)
-        //    vc.Add(bzPoint.transform.position);
-        //vc.Reverse();
+        //Debug.Log("Addition of distances: " + segmentDistances.Select(x => x.Value).Sum() + " vs Total Length: " + PathCreator.ApproxBezierLength(p.path));
 
-        //bz.length;
-
-        //if (curBezierPoint < points.Length - 1)
-        //{
-        //    float approxLength = BezierCurve.ApproximateLength(points[curBezierPoint], points[curBezierPoint + 1]);
-        //    noteTransform.position = BezierCurve.GetPoint(points[curBezierPoint], points[curBezierPoint + 1], pos);
-        //    pos += Time.deltaTime / (approxLength * damping);
-
-        //    if (pos >= 1)
-        //    {
-        //        pos = 0;
-        //        curBezierPoint++;
-        //    }
-        //}
+        //Debug.Log("First segment takes up: " + (segmentDistances[0] / PathCreator.ApproxBezierLength(p.path)) * 100);
+        //Debug.Log("Second segment takes up: " + (segmentDistances[1] / PathCreator.ApproxBezierLength(p.path)) * 100);
+        //Debug.Log("Time to traverse first segment: " + (1.5f / 100) * ((segmentDistances[0] / PathCreator.ApproxBezierLength(p.path)) * 100));
+        //Debug.Log("Time to traverse second segment: " + (1.5f / 100) * ((segmentDistances[1] / PathCreator.ApproxBezierLength(p.path)) * 100));
     }
-    
-    void MovePoint()
+
+    private void Start()
     {
+        PrecalcDistances();
+    }
+
+    PathCreator.Direction noteDirectio = PathCreator.Direction.Forward;
+    // Update is called once per frame
+    void Update() {
         
+        if (pos <= 1)
+        {
+            pos += Time.deltaTime;
+            noteATransform.position = PathCreator.PointOnLine(p.path, pos, 1.5f, noteDirectio);
+        }
+        else
+        {
+            p = p2;
+            noteDirectio = PathCreator.Direction.Backward;
+            pos = 0;
+        }
     }
 }
+
