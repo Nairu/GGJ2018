@@ -38,7 +38,7 @@ public class Note : MonoBehaviour {
         if (posAlongPath <= 1)
         {
             posAlongPath += Time.deltaTime;
-            transform.position = PathCreator.PointOnLine(currentPath, posAlongPath, 1, direction);
+            transform.position = PathCreator.PointOnLine(currentPath, posAlongPath, 1.5f, direction);
         }
         else
         {

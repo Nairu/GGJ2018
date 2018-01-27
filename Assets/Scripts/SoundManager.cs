@@ -22,8 +22,7 @@ public class SoundManager : MonoBehaviour
 
         var seconds = tMap.Tempo.Values.ToArray().First().Value.MicrosecondsPerQuarterNote / 1000000f;
         Time.fixedDeltaTime = seconds;
-        Debug.Log(seconds);
-
+        
         notes = f.GetNotes();
         foreach (var n in notes)
         {
@@ -51,9 +50,18 @@ public class SoundManager : MonoBehaviour
                 switch (note.NoteName)
                 {
                     case Melanchall.DryWetMidi.Common.NoteName.C:
+                        spawner.SpawnNote(ButtonEnum.A);
+                        break;
+                    case Melanchall.DryWetMidi.Common.NoteName.CSharp:
+                        spawner.SpawnNote(ButtonEnum.B);
+                        break;
+                    case Melanchall.DryWetMidi.Common.NoteName.D:
+                        spawner.SpawnNote(ButtonEnum.X);
+                        break;
+                    case Melanchall.DryWetMidi.Common.NoteName.DSharp:
+                        spawner.SpawnNote(ButtonEnum.Y);
                         break;
                 }
-                spawner.SpawnNote(ButtonEnum.A);
             }
         }
     }
