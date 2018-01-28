@@ -287,10 +287,15 @@ MonoBehaviour:
   PerfectHitRange: 0.0508
   OkayHitRange: 0.186
   BadHitRange: 0.373
+  PerfectScoreMod: 5
+  GoodScoreMod: 3
+  BadScoreMod: 1
+  TextUI: {fileID: 0}
   NoteA: {fileID: 1096408246446066, guid: 0688dd954de488e48b17bb0c96a895cd, type: 2}
   NoteB: {fileID: 1405171357027852, guid: c4debbb30ba49c3419f2799599b1bc31, type: 2}
   NoteX: {fileID: 1667069275650852, guid: d4a53968d9afbd54db0ec4c151404a84, type: 2}
   NoteY: {fileID: 1760001093047380, guid: 602f7e81942f36648a24e067c57d1626, type: 2}
+  spawnedNotes: []
 --- !u!4 &132708607
 Transform:
   m_ObjectHideFlags: 0
@@ -1502,7 +1507,7 @@ Animator:
   m_GameObject: {fileID: 1541942666}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 73f9e6a6914874a45a76f04a44dbaa8c, type: 2}
+  m_Controller: {fileID: 9100000, guid: c0c6207c7f5596a4092328b8f7ce3bb8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
