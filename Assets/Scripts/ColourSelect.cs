@@ -9,8 +9,8 @@ public class ColourSelect : MonoBehaviour
     public GameObject ColourPickerGreen;
     public GameObject ColourPickerBlue;
 
-    private RawImage rawImage;
-
+    public GameObject TheButton;
+    [Space]
     private RawImage rawImageRed;
     private RawImage rawImageGreen;
     private RawImage rawImageBlue;
@@ -18,8 +18,6 @@ public class ColourSelect : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
-        rawImage = GetComponent<RawImage>();
-
         rawImageRed = ColourPickerRed.GetComponent<RawImage>();
         rawImageGreen = ColourPickerGreen.GetComponent<RawImage>();
         rawImageBlue = ColourPickerBlue.GetComponent<RawImage>();
@@ -28,7 +26,7 @@ public class ColourSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rawImage.color = new Color(rawImageRed.GetComponent<ColourAdjuster>().Red,
+        TheButton.GetComponent<RawImage>().color = new Color(rawImageRed.GetComponent<ColourAdjuster>().Red,
             rawImageGreen.GetComponent<ColourAdjuster>().Green, rawImageBlue.GetComponent<ColourAdjuster>().Blue);
 
         if (Input.GetKeyDown(KeyCode.Alpha1))

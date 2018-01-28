@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MenuNavigator : MonoBehaviour
 {
@@ -25,13 +28,21 @@ public class MenuNavigator : MonoBehaviour
         OI_BUTTON_X,
         OI_BUTTON_Y
     }
+    public GameObject MainMenuScreen;
+    public GameObject OptionsScreen;
+    public GameObject GameLogo;
+    [Space]
     public GameObject StartButton;
     public GameObject HowToPlayButton;
     public GameObject OptionsButton;
     public GameObject ExitButton;
     [Space]
-    public GameObject MainMenuScreen;
-    public GameObject OptionsScreen;
+    public GameObject ColourBlindButton;
+    public GameObject VolumeButton;
+    public GameObject BackButton;
+    [Space]
+    public GameObject ColourPicker;
+    public GameObject ButtonA;
     [Space]
     public float NavigationDelay = 0.5f;
 
@@ -50,17 +61,11 @@ public class MenuNavigator : MonoBehaviour
         optionItemLength = Enum.GetNames(typeof(OptionsItem)).Length;
     }
 
-    private void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        if (currMenu == Menu.M_MAIN_MENU)
+        if (Input.GetButton("Fire1"))
         {
-            if (Input.GetButton("Fire1"))
+            if (currMenu == Menu.M_MAIN_MENU)
             {
                 if (StartButton.GetComponent<ButtonNotifier>().Selected)
                 {
@@ -74,7 +79,10 @@ public class MenuNavigator : MonoBehaviour
                 {
                     currMenu = Menu.M_OPTIONS_MENU;
                     MainMenuScreen.SetActive(false);
+                    GameLogo.SetActive(false);
                     OptionsScreen.SetActive(true);
+                    OptionsButton.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+                    ColourBlindButton.GetComponent<Button>().Select();
                 }
                 else if (ExitButton.GetComponent<ButtonNotifier>().Selected)
                 {
@@ -82,11 +90,37 @@ public class MenuNavigator : MonoBehaviour
                     Application.Quit();
                 }
             }
-        }
-        else if (currMenu == Menu.M_OPTIONS_MENU)
-        {
-            
+            else if (currMenu == Menu.M_OPTIONS_MENU)
+            {
+                if (ColourBlindButton.GetComponent<ButtonNotifier>().Selected)
+                {
+                    Debug.Log("Colour blind pressed");
+                    ButtonA.GetComponent<Button>().Select();
+
+                    ColourBlindButton.GetComponent<Button>().interactable = false;
+                    VolumeButton.GetComponent<Button>().interactable = false;
+                    BackButton.GetComponent<Button>().interactable = false;
+                }
+                else if (VolumeButton.GetComponent<ButtonNotifier>().Selected)
+                {
+                    Debug.Log("Volume pressed");
+                }
+                else if (BackButton.GetComponent<ButtonNotifier>().Selected)
+                {
+                    currMenu = Menu.M_MAIN_MENU;
+                    MainMenuScreen.SetActive(true);
+                    GameLogo.SetActive(true);
+                    OptionsScreen.SetActive(false);
+                    BackButton.GetComponentInChildren<TextMeshProUGUI>().color = Color.white;
+                    StartButton.GetComponent<Button>().Select();
+                }
+                else if (ButtonA.GetComponent<ButtonNotifier>().Selected)
+                {
+                    ButtonA.GetComponent<Button>().interactable = false;
+
+                    ColourPicker.GetComponentsInChildren<Button>()[0].Select();
+                }
+            }
         }
     }
-
 }
