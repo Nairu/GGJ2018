@@ -26,14 +26,10 @@ public class MenuNavigator : MonoBehaviour
         OI_BUTTON_X,
         OI_BUTTON_Y
     }
-
+    [Space]
     public GameObject MainMenuScreen;
     public GameObject OptionsScreen;
     [Space]
-    public TextMeshProUGUI StartGameText;
-    public TextMeshProUGUI OptionsText;
-    public TextMeshProUGUI QuiteGameText;
-
     public float NavigationDelay = 0.5f;
 
     private float navigationTimeOut = 0f;
@@ -45,104 +41,108 @@ public class MenuNavigator : MonoBehaviour
     private int menuItemLength;
     private int optionItemLength;
 
-    private void SetCurrentMenuItem()
-    {
-        switch (currMenuItem)
-        {
-            case MainMenuItem.MMI_START:
-                StartGameText.color = Color.yellow;
-                OptionsText.color = Color.white;
-                QuiteGameText.color = Color.white;
-                break;
-            case MainMenuItem.MMI_OPTIONS:
-                StartGameText.color = Color.white;
-                OptionsText.color = Color.yellow;
-                QuiteGameText.color = Color.white;
-                break;
-            case MainMenuItem.MMI_EXIT:
-                StartGameText.color = Color.white;
-                OptionsText.color = Color.white;
-                QuiteGameText.color = Color.yellow;
-                break;
-        }
-    }
-
     private void Awake()
     {
         menuItemLength = Enum.GetNames(typeof(MainMenuItem)).Length;
         optionItemLength = Enum.GetNames(typeof(OptionsItem)).Length;
     }
 
-    // Use this for initialization
-    void Start()
+    private void Start()
     {
-
+        
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (navigationTimeOut >= NavigationDelay)
-        {
-            float inputY = Input.GetAxisRaw("Vertical");
+    //// Update is called once per frame
+    //void FixedUpdate()
+    //{
+    //    if (navigationTimeOut >= NavigationDelay)
+    //    {
+    //        float inputY = Input.GetAxisRaw("Vertical");
 
-            if (currMenu == Menu.M_MAIN_MENU)
-            {
-                if (Input.GetButton("Fire1"))
-                {
-                    switch (currMenuItem)
-                    {
-                        case MainMenuItem.MMI_START:
-                            // TODO: Load the game scene.
-                            Debug.Log("This is when the game would run.");
-                            break;
-                        case MainMenuItem.MMI_OPTIONS:
-                            MainMenuScreen.SetActive(false);
-                            OptionsScreen.SetActive(true);
-                            currMenu = Menu.M_OPTIONS_MENU;
-                            break;
-                        case MainMenuItem.MMI_EXIT:
-                            Application.Quit();
-                            break;
-                    }
-                }
-                else
-                {
-                    int currentIdx = (int)currMenuItem;
+    //        if (currMenu == Menu.M_MAIN_MENU)
+    //        {
+    //            if (Input.GetButton("Fire1"))
+    //            {
+    //                switch (currMenuItem)
+    //                {
+    //                    case MainMenuItem.MMI_START:
+    //                        // TODO: Load the game scene.
+    //                        Debug.Log("This is when the game would run.");
+    //                        break;
+    //                    case MainMenuItem.MMI_OPTIONS:
+    //                        MainMenuScreen.SetActive(false);
+    //                        OptionsScreen.SetActive(true);
+    //                        currMenu = Menu.M_OPTIONS_MENU;
+    //                        break;
+    //                    case MainMenuItem.MMI_EXIT:
+    //                        Application.Quit();
+    //                        break;
+    //                }
+    //            }
+    //            else
+    //            {
+    //                int currentIdx = (int)currMenuItem;
                     
-                    if (inputY == 1)
-                    {
-                        if (currentIdx == 0)
-                            currentIdx = menuItemLength;
-                        else
-                            currentIdx = --currentIdx % menuItemLength;
-                    }
-                    else if (inputY == -1)
-                    {
-                        currentIdx = ++currentIdx % menuItemLength;
-                    }
+    //                if (inputY == 1)
+    //                {
+    //                    if (currentIdx == 0)
+    //                    {
+    //                        currentIdx = menuItemLength;
+    //                    }
+    //                    else
+    //                    {
+    //                        currentIdx = --currentIdx % menuItemLength;
+    //                    }
+    //                }
+    //                else if (inputY == -1)
+    //                {
+    //                    currentIdx = ++currentIdx % menuItemLength;
+    //                }
+                    
+    //                if ((MainMenuItem)currentIdx != currMenuItem)
+    //                {
+    //                    currMenuItem = (MainMenuItem)currentIdx;
 
-                    if ((MainMenuItem)currentIdx != currMenuItem)
-                    {
-                        currMenuItem = (MainMenuItem)currentIdx;
-                        SetCurrentMenuItem();
-                    }
-                }
-            }
-            else if (currMenu == Menu.M_OPTIONS_MENU)
-            {
-                int currentIdx = (int)currOptionItem;
+    //                    //StartAnimator.Play("StartHighlight");// .ResetTrigger("StartSelected");
+    //                    //OptionsAnimator.ResetTrigger("OptionsSelected");
+    //                    //ExitAnimator.ResetTrigger("ExitSelected");
 
-                if (inputY >= 1)
-                    currentIdx = --currentIdx % optionItemLength;
-                else if (inputY <= -1)
-                    currentIdx = ++currentIdx % optionItemLength;
+    //                    if (currMenuItem == MainMenuItem.MMI_START)
+    //                    {
+    //                        StartAnimator.Play("StartHighlight");
+    //                        Debug.Log("Setting Start");
+    //                        //StartAnimator.SetTrigger("StartSelected");                            
+    //                    }
+    //                    else if (currMenuItem == MainMenuItem.MMI_OPTIONS)
+    //                    {
+    //                        OptionsAnimator.Play("OptionHighlight");
+    //                        Debug.Log("Setting Options");
+    //                        //OptionsAnimator.SetTrigger("OptionsSelected");                            
+    //                    }
+    //                    else
+    //                    {
+    //                        ExitAnimator.Play("ExitHighlight");
+    //                        Debug.Log("Setting Exit");
+    //                        //ExitAnimator.SetTrigger("ExitSelected");
+    //                    }
+    //                }
+    //            }
+    //        }
+    //        else if (currMenu == Menu.M_OPTIONS_MENU)
+    //        {
+    //            int currentIdx = (int)currOptionItem;
 
-                if ((OptionsItem)currentIdx != currOptionItem)
-                    currOptionItem = (OptionsItem)currentIdx;
-            }
-            navigationTimeOut = 0f;
-        }
-        navigationTimeOut += Time.fixedDeltaTime;
-    }
+    //            if (inputY >= 1)
+    //                currentIdx = --currentIdx % optionItemLength;
+    //            else if (inputY <= -1)
+    //                currentIdx = ++currentIdx % optionItemLength;
+
+    //            if ((OptionsItem)currentIdx != currOptionItem)
+    //                currOptionItem = (OptionsItem)currentIdx;
+    //        }
+    //        navigationTimeOut = 0f;
+    //    }
+    //    navigationTimeOut += Time.fixedDeltaTime;
+    //}
+
 }
