@@ -114,23 +114,23 @@ MonoBehaviour:
   ControllerButton: 0
   EntryPath:
     points:
-    - Position: {x: 3.5536225, y: -1.9255254}
+    - Position: {x: -1.25553, y: 2.284341}
       Type: 1
-    - Position: {x: 3.316418, y: -1.0561616}
+    - Position: {x: -1.2591388, y: 2.161774}
       Type: 0
-    - Position: {x: 2.242509, y: -0.960807}
+    - Position: {x: -1.3229475, y: 2.0257585}
       Type: 0
-    - Position: {x: 1.9496945, y: -0.91523266}
+    - Position: {x: -1.2177991, y: 1.5321842}
       Type: 1
-    - Position: {x: 1.4576212, y: -0.8386451}
+    - Position: {x: -1.1253562, y: 1.0982506}
       Type: 0
-    - Position: {x: 1.2559988, y: -0.9095707}
+    - Position: {x: -0.8563425, y: 1.0460517}
       Type: 0
-    - Position: {x: 0.6960342, y: -0.82739395}
+    - Position: {x: -0.63062996, y: 0.8478618}
       Type: 1
-    - Position: {x: 0.17049724, y: -0.7502696}
+    - Position: {x: -0.43556386, y: 0.6765814}
       Type: 0
-    - Position: {x: -0.12523723, y: -0.43487218}
+    - Position: {x: -0.40507567, y: 0.51898146}
       Type: 0
     - Position: {x: -0.23, y: -0.15}
       Type: 1
@@ -156,8 +156,11 @@ MonoBehaviour:
       Type: 0
     - Position: {x: -0.23, y: -0.15}
       Type: 1
-  EntryPathName: Path2
+  EntryPathName: Path4
   ExitPathName: Path3
+  renderers:
+  - {fileID: 212282633112042206}
+  - {fileID: 212448568873558572}
 --- !u!212 &212282633112042206
 SpriteRenderer:
   m_ObjectHideFlags: 1

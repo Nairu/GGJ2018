@@ -10,9 +10,20 @@ public enum ButtonEnum
     Y
 }
 
+public enum NotePerfection
+{
+    Unhit,
+    Perfect,
+    Good,
+    Bad,
+    Missed
+}
+
 public class Note : MonoBehaviour {
 
     public ButtonEnum ControllerButton;
+    public NotePerfection Perfection = NotePerfection.Unhit;
+    public PathCreator.Direction direction = PathCreator.Direction.Forward;
 
     public Path EntryPath;
     public Path ExitPath;
@@ -20,8 +31,9 @@ public class Note : MonoBehaviour {
     public string EntryPathName;
     public string ExitPathName;
 
+    public SpriteRenderer[] renderers;
+
     private Path currentPath;
-    private PathCreator.Direction direction = PathCreator.Direction.Forward;
     private float posAlongPath;
     private bool finished;
 
@@ -56,4 +68,11 @@ public class Note : MonoBehaviour {
         }
     }
 
+    public void SetDeactivated()
+    {
+        foreach (var renderer in renderers)
+        {
+            renderer.color = Color.grey;
+        }
+    }
 }

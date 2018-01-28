@@ -158,6 +158,9 @@ MonoBehaviour:
       Type: 1
   EntryPathName: 
   ExitPathName: 
+  renderers:
+  - {fileID: 212580007423112906}
+  - {fileID: 212608191245811546}
 --- !u!212 &212580007423112906
 SpriteRenderer:
   m_ObjectHideFlags: 1
