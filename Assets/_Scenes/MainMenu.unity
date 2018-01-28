@@ -577,11 +577,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -770,6 +770,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84803ee7f284f784fb95818328b902ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartButton: {fileID: 406120971}
+  HowToPlayButton: {fileID: 530057396}
+  OptionsButton: {fileID: 1932224512}
+  ExitButton: {fileID: 378688691}
   MainMenuScreen: {fileID: 1076619317}
   OptionsScreen: {fileID: 1660975792}
   NavigationDelay: 0.15
@@ -821,6 +825,7 @@ GameObject:
   - component: {fileID: 378688695}
   - component: {fileID: 378688694}
   - component: {fileID: 378688693}
+  - component: {fileID: 378688697}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -939,6 +944,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 378688691}
+--- !u!114 &378688697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 378688691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac8c402e7551754ba457726efc9694a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &396076900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1121,7 @@ GameObject:
   - component: {fileID: 406120975}
   - component: {fileID: 406120974}
   - component: {fileID: 406120973}
+  - component: {fileID: 406120977}
   m_Layer: 0
   m_Name: StartButton
   m_TagString: Untagged
@@ -1223,6 +1240,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406120971}
+--- !u!114 &406120977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 406120971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac8c402e7551754ba457726efc9694a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &455860398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1485,7 @@ GameObject:
   - component: {fileID: 530057400}
   - component: {fileID: 530057399}
   - component: {fileID: 530057398}
+  - component: {fileID: 530057402}
   m_Layer: 0
   m_Name: HowToPlayButton
   m_TagString: Untagged
@@ -1575,6 +1604,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 530057396}
+--- !u!114 &530057402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 530057396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac8c402e7551754ba457726efc9694a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &561594051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,11 +1979,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2426,7 +2466,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 406120971}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1448767648
@@ -3024,6 +3064,7 @@ GameObject:
   - component: {fileID: 1932224516}
   - component: {fileID: 1932224515}
   - component: {fileID: 1932224514}
+  - component: {fileID: 1932224518}
   m_Layer: 0
   m_Name: Options
   m_TagString: Untagged
@@ -3142,6 +3183,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1932224512}
+--- !u!114 &1932224518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1932224512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac8c402e7551754ba457726efc9694a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1945755648
 GameObject:
   m_ObjectHideFlags: 0
