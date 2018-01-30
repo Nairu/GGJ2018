@@ -26,6 +26,16 @@ public class Path
 {
     [SerializeField, HideInInspector]
     List<Point> points;
+    float length = 0;
+
+    public float Length
+    {
+        get
+        {
+            if (length == 0) length = PathCreator.ApproxBezierLength(this);
+            return length;
+        }
+    }
 
     public Path(Vector2 centre)
     {
@@ -36,6 +46,8 @@ public class Path
             new Point (centre + (Vector2.right+Vector2.down)*.5f, PointType.Handle),
             new Point (centre + Vector2.right, PointType.Point)
         };
+
+        length = PathCreator.ApproxBezierLength(this);
     }
     
     public Point this[int i]
@@ -67,6 +79,7 @@ public class Path
         points.Add(new Point(points[points.Count - 1].Position * 2 - points[points.Count - 2].Position, PointType.Handle));
         points.Add(new Point((points[points.Count - 1].Position + anchorPos) * .5f, PointType.Handle));
         points.Add(new Point(anchorPos, PointType.Point));
+        length = PathCreator.ApproxBezierLength(this);
     }
 
     public Vector2[] GetPointPositionsInSegment(int i)
@@ -108,6 +121,8 @@ public class Path
                 points[correspondingControlIndex].Position = points[anchorIndex].Position + dir * dst;
             }
         }
+
+        length = PathCreator.ApproxBezierLength(this);
     }
 
 }

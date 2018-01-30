@@ -76,13 +76,11 @@ public class ColourAdjuster : MonoBehaviour
         Color newColour = currColour;
         float value = 0f;
 
-        float input = Input.GetAxisRaw("Horizontal");
-
-        if (input >= 1 || input <= -1)
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
-            if (input <= -1)
+            if (Input.GetKey(KeyCode.LeftArrow))
                 value = -Speed;
-            else if (input >= 1)
+            else if (Input.GetKey(KeyCode.RightArrow))
                 value = Speed;
             value *= Time.deltaTime;
 
@@ -121,7 +119,7 @@ public class ColourAdjuster : MonoBehaviour
         }
     }
 
-    public int ConvertToTwoFiveFive(float value)
+    int ConvertToTwoFiveFive(float value)
     {
         return Convert.ToInt32(255 * value);
     }

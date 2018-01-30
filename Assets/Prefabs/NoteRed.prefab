@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4820283199766162}
   - component: {fileID: 114219565439521728}
+  - component: {fileID: 111222516758253892}
   m_Layer: 0
   m_Name: NoteRed
   m_TagString: Untagged
@@ -100,6 +101,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111222516758253892
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405171357027852}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 109ac225761fe6f4a80c7dcc3a181acf, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 109ac225761fe6f4a80c7dcc3a181acf, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114219565439521728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControllerButton: 1
+  Perfection: 0
+  direction: 0
   EntryPath:
     points:
     - Position: {x: 3.6250544, y: -0.09993711}

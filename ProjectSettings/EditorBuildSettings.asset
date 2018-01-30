@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/AudioTesting.unity
-    guid: 2d8e7cb2d6174e449b0c90634a7031ee
-  - enabled: 1
     path: Assets/_Scenes/MainMenu.unity
     guid: 6336dac5675650045bf4ea168fc939ff
+  - enabled: 1
+    path: Assets/_Scenes/LevelSelect.unity
+    guid: 86e84aa5d5869ce46981926bf155b3d5
+  - enabled: 1
+    path: Assets/_Scenes/Level0.unity
+    guid: 2fc9b74f80c69df4aa7538767132e63d
+  - enabled: 1
+    path: Assets/_Scenes/ScoreScreen.unity
+    guid: f5e26af25620f674f9dda68fe4b27266
   m_configObjects: {}

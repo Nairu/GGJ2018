@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4080990731610240}
   - component: {fileID: 114309912664793036}
+  - component: {fileID: 111836030476647238}
   m_Layer: 0
   m_Name: NoteBlue
   m_TagString: Untagged
@@ -66,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667069275650852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.576, y: -1.673, z: 0.1171875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4093874148848466}
@@ -100,6 +101,21 @@ Transform:
   m_Father: {fileID: 4080990731610240}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111836030476647238
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1667069275650852}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 109ac225761fe6f4a80c7dcc3a181acf, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 109ac225761fe6f4a80c7dcc3a181acf, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114309912664793036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,58 +128,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControllerButton: 2
+  Perfection: 0
+  direction: 0
   EntryPath:
     points:
-    - Position: {x: -3.1596808, y: 1.7505326}
+    - Position: {x: -2.4580047, y: -2.226647}
       Type: 1
-    - Position: {x: -3.0712156, y: 1.0381675}
+    - Position: {x: -1.9152424, y: -2.3757014}
       Type: 0
-    - Position: {x: -2.7033622, y: 0.626855}
+    - Position: {x: -1.574789, y: -2.0449922}
       Type: 0
-    - Position: {x: -2.2484639, y: 0.49998593}
+    - Position: {x: -1.4406767, y: -1.9204636}
       Type: 1
-    - Position: {x: -1.7935472, y: 0.37311172}
+    - Position: {x: -1.2460694, y: -1.739763}
       Type: 0
-    - Position: {x: -1.4841826, y: 0.54648066}
+    - Position: {x: -1.1133074, y: -1.4380469}
       Type: 0
-    - Position: {x: -0.9359242, y: 0.32230887}
+    - Position: {x: -1.086344, y: -1.2551303}
       Type: 1
-    - Position: {x: -0.5759134, y: 0.17510775}
+    - Position: {x: -1.0495489, y: -1.005516}
       Type: 0
-    - Position: {x: -0.41380268, y: 0.010769764}
+    - Position: {x: -1.0149605, y: -0.7909232}
+      Type: 0
+    - Position: {x: -0.7853232, y: -0.56189233}
+      Type: 1
+    - Position: {x: -0.6257196, y: -0.40271026}
+      Type: 0
+    - Position: {x: -0.38620633, y: -0.3425327}
       Type: 0
     - Position: {x: -0.23, y: -0.15}
       Type: 1
   ExitPath:
     points:
-    - Position: {x: -2.3274558, y: -2.1935225}
+    - Position: {x: 2.1546283, y: 1.7696611}
       Type: 1
-    - Position: {x: -1.8431485, y: -2.256843}
+    - Position: {x: 2.854804, y: 1.8022579}
       Type: 0
-    - Position: {x: -1.5544341, y: -2.0499372}
+    - Position: {x: 2.9092488, y: 1.2311386}
       Type: 0
-    - Position: {x: -1.4250886, y: -1.9204636}
+    - Position: {x: 2.8096468, y: 1.06712}
       Type: 1
-    - Position: {x: -1.239875, y: -1.7350662}
+    - Position: {x: 2.6503341, y: 0.8047731}
       Type: 0
-    - Position: {x: -1.0918744, y: -1.5023472}
+    - Position: {x: 2.204875, y: 0.35830852}
       Type: 0
-    - Position: {x: -1.0532199, y: -1.2960488}
+    - Position: {x: 1.5676372, y: 0.31342554}
       Type: 1
-    - Position: {x: -1.0067525, y: -1.0480528}
+    - Position: {x: 0.9939797, y: 0.27302074}
       Type: 0
-    - Position: {x: -1.0282751, y: -0.8878372}
-      Type: 0
-    - Position: {x: -0.8242931, y: -0.6456776}
-      Type: 1
-    - Position: {x: -0.6707807, y: -0.46343368}
-      Type: 0
-    - Position: {x: -0.4407642, y: -0.27433544}
+    - Position: {x: 0.55034107, y: 0.57300806}
       Type: 0
     - Position: {x: -0.23, y: -0.15}
       Type: 1
-  EntryPathName: Path3
-  ExitPathName: Path0
+  EntryPathName: Path0
+  ExitPathName: Path6
   renderers:
   - {fileID: 212971163503415670}
   - {fileID: 212407473067023806}

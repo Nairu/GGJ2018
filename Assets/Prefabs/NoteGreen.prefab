@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4368902622133834}
   - component: {fileID: 114153527002376122}
+  - component: {fileID: 111434494313008170}
   m_Layer: 0
   m_Name: NoteGreen
   m_TagString: Untagged
@@ -100,6 +101,21 @@ Transform:
   m_Father: {fileID: 4368902622133834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &111434494313008170
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1096408246446066}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 109ac225761fe6f4a80c7dcc3a181acf, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 109ac225761fe6f4a80c7dcc3a181acf, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114153527002376122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,52 +128,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ControllerButton: 0
+  Perfection: 0
+  direction: 0
   EntryPath:
     points:
-    - Position: {x: -1.25553, y: 2.284341}
+    - Position: {x: 2.1546283, y: 1.7696611}
       Type: 1
-    - Position: {x: -1.2591388, y: 2.161774}
+    - Position: {x: 2.854804, y: 1.8022579}
       Type: 0
-    - Position: {x: -1.3229475, y: 2.0257585}
+    - Position: {x: 2.9092488, y: 1.2311386}
       Type: 0
-    - Position: {x: -1.2177991, y: 1.5321842}
+    - Position: {x: 2.8096468, y: 1.06712}
       Type: 1
-    - Position: {x: -1.1253562, y: 1.0982506}
+    - Position: {x: 2.6503341, y: 0.8047731}
       Type: 0
-    - Position: {x: -0.8563425, y: 1.0460517}
+    - Position: {x: 2.204875, y: 0.35830852}
       Type: 0
-    - Position: {x: -0.63062996, y: 0.8478618}
+    - Position: {x: 1.5676372, y: 0.31342554}
       Type: 1
-    - Position: {x: -0.43556386, y: 0.6765814}
+    - Position: {x: 0.9939797, y: 0.27302074}
       Type: 0
-    - Position: {x: -0.40507567, y: 0.51898146}
+    - Position: {x: 0.55034107, y: 0.57300806}
       Type: 0
     - Position: {x: -0.23, y: -0.15}
       Type: 1
   ExitPath:
     points:
-    - Position: {x: -3.1596808, y: 1.7505326}
+    - Position: {x: -0.1655026, y: 2.3678617}
       Type: 1
-    - Position: {x: -3.0712156, y: 1.0381675}
+    - Position: {x: 0.16859692, y: 2.1398427}
       Type: 0
-    - Position: {x: -2.7033622, y: 0.626855}
+    - Position: {x: 0.2244719, y: 1.6880149}
       Type: 0
-    - Position: {x: -2.2484639, y: 0.49998593}
+    - Position: {x: 0.17310914, y: 1.2400035}
       Type: 1
-    - Position: {x: -1.7935472, y: 0.37311172}
+    - Position: {x: 0.12827225, y: 0.84891385}
       Type: 0
-    - Position: {x: -1.4841826, y: 0.54648066}
-      Type: 0
-    - Position: {x: -0.9359242, y: 0.32230887}
-      Type: 1
-    - Position: {x: -0.5759134, y: 0.17510775}
-      Type: 0
-    - Position: {x: -0.41380268, y: 0.010769764}
+    - Position: {x: 0.034030452, y: 0.5810695}
       Type: 0
     - Position: {x: -0.23, y: -0.15}
       Type: 1
-  EntryPathName: Path4
-  ExitPathName: Path3
+  EntryPathName: Path6
+  ExitPathName: Path5
   renderers:
   - {fileID: 212282633112042206}
   - {fileID: 212448568873558572}
