@@ -163,6 +163,7 @@ public class NoteSpawner : MonoBehaviour
     
     List<Note> PopulateClosestNotes()
     {
+        //TODO: Fix this so that it only gets the notes that are "approaching" based on their CurrentPosition when above 0 (and less than 1)
         List<Note> closestNotes = new List<Note>();
         for (int i = 0; i < spawnedNotes.Count; i++)
         {
@@ -278,6 +279,7 @@ public class NoteSpawner : MonoBehaviour
         //}
     }
 
+    //TODO: Remove.
     bool ValidateHitNote(Note note)
     {
         if (note.ControllerButton == ButtonEnum.A && ((DPadButtons.left || DPadButtons.right || DPadButtons.up) && note.CurrentPosition < BadHitRange)) {
@@ -295,6 +297,7 @@ public class NoteSpawner : MonoBehaviour
         else return true;
     }
     
+    //TODO: Modify this to get a list of all "required" hit directions, and then pass check that those directions are hit exclusively (fail if up is held when need down e.g)
     bool ValidateHitNotes(List<Note> notes)
     {
         foreach (var note in notes)
@@ -323,6 +326,7 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
+    //TODO: Fix this (its broken and I don't know why)
     void SetNoteHitValues(ref List<Note> notes)
     {
         for (int i = 0; i < notes.Count; i++)
@@ -331,6 +335,7 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
+    //TODO: Fix this (its broken and I don't know why)
     NotePerfection SetNoteHitValue(Note note)
     {
         if (note.CurrentPosition < PerfectHitRange)
@@ -396,6 +401,8 @@ public class NoteSpawner : MonoBehaviour
         return bestTarget;
     }
 
+    //Spawn note is what gets called from the audio manager to convert one of the 
+    //midi notes into a point on the screen. Consider modifying to take in a "chord"
     public void SpawnNote(ButtonEnum num)
     {
         var startPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
