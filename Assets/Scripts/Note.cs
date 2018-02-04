@@ -38,7 +38,6 @@ public class Note : MonoBehaviour {
 
     private Path currentPath;
     private float posAlongPath;
-    private bool finished;
     private bool activated = true;
 
     private void Start()
@@ -53,15 +52,13 @@ public class Note : MonoBehaviour {
         get
         {
             //return currentPath.NumPoints
-            return ((1 - posAlongPath) * currentPath.Length) * (direction == PathCreator.Direction.Forward ? 1 : -1);
+            if (direction == PathCreator.Direction.Forward) return (1 - posAlongPath) * currentPath.Length;
+            else return posAlongPath * currentPath.Length * -1;
         }
     }
 
     private void Update()
     {
-        if (finished)
-            return;
-
         if (posAlongPath <= 1)
         {
             posAlongPath += Time.deltaTime;
@@ -91,8 +88,9 @@ public class Note : MonoBehaviour {
 
     public void SetDeactivated()
     {
+        Debug.Log("NOTE: " + this.gameObject.name + " HAS BEEN DEACTIVATED!");
         foreach (var renderer in renderers)
-        {
+        {  
             renderer.color = Color.grey;
         }
 

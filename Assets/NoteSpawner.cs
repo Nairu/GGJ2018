@@ -7,16 +7,15 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class InputHelper
-{
-    bool A;
-    bool B;
-    bool C;
-    bool D;
-}
-
 public class NoteSpawner : MonoBehaviour
 {
+    public enum HitResult
+    {
+        Hit,
+        Unhit,
+        Miss
+    }
+
     public GameObject noteHitPoint;
     public Vector3 noteHitPosition
     {
@@ -87,7 +86,13 @@ public class NoteSpawner : MonoBehaviour
         RemoveNullGameobjects();
 
         List<Note> notes = PopulateClosestNotes();
-        if (notes.Count > 0 && ValidateHitNotes(notes))
+        //List<Note> notes = spawnedNotes.Select(x => x.GetComponent<Note>()).ToList();
+        HitResult result = ValidateHitNotes(notes);
+        if (notes.Any(x => x.ControllerButton == ButtonEnum.X || x.ControllerButton == ButtonEnum.Y))
+        {
+            Debug.Log("X OR Y BUTTON");
+        }
+        if (notes.Count > 0 && result == HitResult.Hit)
         {
             //get the first note because now we know that they are all valid, so they should all be hit at the same time.
             Note note = notes[0];
@@ -116,7 +121,7 @@ public class NoteSpawner : MonoBehaviour
                 }
             }
         }
-        else if (notes.Count > 0)
+        else if (notes.Count > 0 && result == HitResult.Miss)
         {
             for (int i = 0; i < notes.Count; i++)
             {
@@ -294,15 +299,48 @@ public class NoteSpawner : MonoBehaviour
         }
         else return true;
     }
-    
-    bool ValidateHitNotes(List<Note> notes)
+
+    HitResult ValidateHitNotes(List<Note> notes)
     {
+        List<ButtonEnum> allNotesToHit = new List<ButtonEnum>();
+
+        //let's get a list of all of the directions we need to hit
         foreach (var note in notes)
         {
-            bool noteVal = ValidateHitNote(note);
-            if (!noteVal) return false;
+            if (note.CurrentPosition > BadHitRange && note.CurrentPosition >= 0)
+            {
+                return HitResult.Unhit;
+            }
+            else if (note.ControllerButton == ButtonEnum.X || note.ControllerButton == ButtonEnum.Y)
+            {
+                Debug.Log("Note position: " + Mathf.Abs(note.CurrentPosition) + 
+                          " which is greater than " + BadHitRange + 
+                          "? " + (Mathf.Abs(note.CurrentPosition) > BadHitRange));
+                if (note.CurrentPosition < 0 && (Mathf.Abs(note.CurrentPosition) > BadHitRange)) return HitResult.Miss;
+            }
+            else if (note.CurrentPosition < 0)
+            {
+                if (Mathf.Abs(note.CurrentPosition) > BadHitRange) return HitResult.Miss;
+            }
+            allNotesToHit.Add(note.ControllerButton);
         }
-        return true;
+
+        if (!DPadButtons.down && !DPadButtons.right && !DPadButtons.left && !DPadButtons.right) return HitResult.Unhit;
+
+        //now lets make sure that all of the various buttons are pressed correctly.
+        bool passed = false;
+        if (DPadButtons.down) passed = allNotesToHit.Contains(ButtonEnum.A);
+        if (DPadButtons.right) passed = allNotesToHit.Contains(ButtonEnum.B);
+        if (DPadButtons.left) passed = allNotesToHit.Contains(ButtonEnum.X);
+        if (DPadButtons.up) passed = allNotesToHit.Contains(ButtonEnum.Y);
+        return passed == true ? HitResult.Hit : HitResult.Miss;
+
+        //foreach (var note in notes)
+        //{
+        //    bool noteVal = ValidateHitNote(note);
+        //    if (!noteVal) return false;
+        //}
+        //return true;
     }
 
     void CleanupSpawnedNotes()
@@ -396,8 +434,11 @@ public class NoteSpawner : MonoBehaviour
         return bestTarget;
     }
 
-    public void SpawnNote(ButtonEnum num)
+    public void SpawnNote(List<ButtonEnum> notes)
     {
+        //if (notes.Count > 0)
+        //    Debug.Log("Notes this beat: " + notes.Count);
+        
         var startPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
         var endPath = manager.GetPathAtIndex(Random.Range(0, manager.PathCount));
         if (endPath == startPath)
@@ -407,36 +448,51 @@ public class NoteSpawner : MonoBehaviour
         }
         GameObject note;
         Note n;
-        switch (num)
+        foreach (ButtonEnum num in notes)
         {
-            case ButtonEnum.A:
-                note = NoteA;
-                n = note.GetComponent<Note>();
-                break;
-            case ButtonEnum.B:
-                note = NoteB;
-                n = note.GetComponent<Note>();
-                break;
-            case ButtonEnum.X:
-                note = NoteX;
-                n = note.GetComponent<Note>();
-                break;
-            case ButtonEnum.Y:
-                note = NoteY;
-                n = note.GetComponent<Note>();
-                break;
-            default:
-                Debug.LogError("SOMETHING IS VERY VERY WRONG!");
-                n = new Note();
-                note = new GameObject();
-                break;
+            switch (num)
+            {
+                case ButtonEnum.A:
+                    startPath = manager.GetPathAtIndex(0);
+                    endPath = manager.GetPathAtIndex(1);
+                    note = NoteA;
+                    n = note.GetComponent<Note>();
+                    n.ControllerButton = num;
+                    break;
+                case ButtonEnum.B:
+                    startPath = manager.GetPathAtIndex(2);
+                    endPath = manager.GetPathAtIndex(3);
+                    note = NoteB;
+                    n = note.GetComponent<Note>();
+                    n.ControllerButton = num;
+                    break;
+                case ButtonEnum.X:
+                    startPath = manager.GetPathAtIndex(4);
+                    endPath = manager.GetPathAtIndex(5);
+                    note = NoteX;
+                    n = note.GetComponent<Note>();
+                    n.ControllerButton = num;
+                    break;
+                case ButtonEnum.Y:
+                    startPath = manager.GetPathAtIndex(6);
+                    endPath = manager.GetPathAtIndex(7);
+                    note = NoteY;
+                    n = note.GetComponent<Note>();
+                    n.ControllerButton = num;
+                    break;
+                default:
+                    Debug.LogError("SOMETHING IS VERY VERY WRONG!");
+                    n = new Note();
+                    note = new GameObject();
+                    break;
+            }
+            n.EntryPath = startPath.path;
+            n.ExitPath = endPath.path;
+            n.EntryPathName = startPath.gameObject.name;
+            n.ExitPathName = endPath.gameObject.name;
+            GameObject instance = Instantiate(note, new Vector3(100, 100), Quaternion.identity, transform);
+            spawnedNotes.Add(instance);
         }
-        n.EntryPath = startPath.path;
-        n.ExitPath = endPath.path;
-        n.EntryPathName = startPath.gameObject.name;
-        n.ExitPathName = endPath.gameObject.name;
-        GameObject instance = Instantiate(note, new Vector3(100, 100), Quaternion.identity, transform);
-        spawnedNotes.Add(instance);
     }
 }
 

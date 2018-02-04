@@ -55,15 +55,7 @@ public class MenuNavigator : MonoBehaviour
     {
         
     }
-
-    public void Update()
-    {
-        Debug.Log("DPad down: " + DPadButtons.down);
-        Debug.Log("DPad Left: " + (Input.GetAxis("DPadX") == -1));
-        Debug.Log("DPad right: " + (Input.GetAxis("DPadX") == 1));
-        Debug.Log("DPad up: " + (Input.GetAxis("DPadY") == 1));
-    }
-
+    
     public void LoadScene(string sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad);

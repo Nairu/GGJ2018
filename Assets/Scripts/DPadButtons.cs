@@ -45,9 +45,15 @@ public class DPadButtons : MonoBehaviour
         }
         else { lastY = 0; }
 
+        //if we've already triggered a thing, don't remove it because we haven't pressed the button as well
+        if (!down) down = Input.GetButtonUp("A");
+        if (!up) up = Input.GetButtonUp("Y");
+        if (!left) left = Input.GetButtonUp("X");
+        if (!right) right = Input.GetButtonUp("B");
+
         down = Input.GetButtonUp("A");
         up = Input.GetButtonUp("Y");
         left = Input.GetButtonUp("X");
-        right = Input.GetButtonUp("Y");
+        right = Input.GetButtonUp("B");
     }
 }
